@@ -83,8 +83,8 @@ VALUES
   ('user', 'jUE98uhvS5tdIlxRsmz1W7/Qaqo=', '9CWPUTvXqQ4=', 'User');
 
 INSERT INTO brewery
-	(location_name,brewpub,image_address,background_info,address_line1,city,district,zipcode)
-VALUES ('Taft', 1, 'https://cdn.citybeat.com/files/base/scomm/cb/image/2016/06/960w/eats_tafts-ale-house_photo-jesse-fox.jpg','This is a brewery AND a pub', '1429 Race Street', 'Cincinnati', 'OH', '45202' );
+	(location_name,bar_brewery_brewpub,image_address,background_info,address_line1,city,district,zipcode)
+VALUES ('Taft', 'Brewpub', 'https://cdn.citybeat.com/files/base/scomm/cb/image/2016/06/960w/eats_tafts-ale-house_photo-jesse-fox.jpg','This is a brewery AND a pub', '1429 Race Street', 'Cincinnati', 'OH', '45202' );
 
 INSERT INTO beer_info
 	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
