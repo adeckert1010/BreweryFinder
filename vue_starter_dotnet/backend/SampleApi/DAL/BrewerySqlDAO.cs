@@ -95,7 +95,7 @@ namespace SampleApi.DAL
                 District = Convert.ToString(reader["district"]),
                 ZipCode = Convert.ToString(reader["zipcode"]),
                 ImageLocation = Convert.ToString(reader["image_address"]),
-                Type = Convert.ToString(reader["bar_brewery_barpub"]),
+                Type = Convert.ToString(reader["bar_brewery_brewpub"]),
                 Established = Convert.ToDateTime(reader["established"]),
                 BackgroundInfo = Convert.ToString(reader["background_info"])
             };

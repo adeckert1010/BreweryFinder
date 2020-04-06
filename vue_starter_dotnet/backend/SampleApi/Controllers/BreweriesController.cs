@@ -17,6 +17,12 @@ namespace SampleApi.Controllers
     public class BreweriesController : ControllerBase
     {
         private IBreweryDAO breweryDao;
+
+        public BreweriesController(IBreweryDAO dao)
+        {
+            this.breweryDao = dao;
+        }
+
         // GET: api/Breweries
         [HttpGet]
         public IEnumerable<Brewery> Get()
