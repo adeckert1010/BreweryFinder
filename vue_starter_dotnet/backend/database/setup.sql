@@ -13,7 +13,7 @@ CREATE DATABASE DemoDB;
 GO
 
 -- Switch to the DemoDB Database
-USE DemoDB
+USE DemoDB;
 GO
 
 BEGIN TRANSACTION;
@@ -29,7 +29,7 @@ CREATE TABLE users
 	constraint pk_users primary key (id)
 );
 
-CREATE TABLE main
+CREATE TABLE brewery
 (
 	location_id int identity(1,1),
 	location_name varchar(50) not null,
@@ -69,17 +69,21 @@ CREATE TABLE beer_location
    CONSTRAINT pk_beer_location_beer_id_location_id PRIMARY KEY (beer_id,location_id)
 );
 
+CREATE TABLE user_beer
+(
+	id_user int not null,
+	beer_id int not null,
+
+	CONSTRAINT pk_user_beer_id PRIMARY KEY (id_user, beer_id)
+);
+
 -- default username of 'user' and default password of 'greatwall'
 INSERT INTO users
   (username,password,salt,role)
 VALUES
   ('user', 'jUE98uhvS5tdIlxRsmz1W7/Qaqo=', '9CWPUTvXqQ4=', 'User');
 
-COMMIT TRANSACTION;
-
-BEGIN TRANSACTION;
-
-INSERT INTO main
+INSERT INTO brewery
 	(location_name,brewpub,image_address,background_info,address_line1,city,district,zipcode)
 VALUES ('Taft', 1, 'https://cdn.citybeat.com/files/base/scomm/cb/image/2016/06/960w/eats_tafts-ale-house_photo-jesse-fox.jpg','This is a brewery AND a pub', '1429 Race Street', 'Cincinnati', 'OH', '45202' );
 
@@ -90,5 +94,21 @@ VALUES ('Nellies Keylime', 'Delicious and nutritious, part of this balanced brea
 INSERT INTO beer_location
  (beer_id, location_id)
  VALUES (1,1)
+
+ ALTER TABLE user_beer 
+ ADD FOREIGN KEY (id_user)
+ REFERENCES users(id); 
+ 
+ ALTER TABLE user_beer
+ ADD FOREIGN KEY (beer_id)
+ REFERENCES beer_info(beer_id);
+
+ ALTER TABLE beer_location
+ ADD FOREIGN KEY (location_id)
+ REFERENCES brewery(location_id);
+
+ ALTER TABLE beer_location
+ ADD FOREIGN KEY (beer_id)
+ REFERENCES beer_info(beer_id);
 
 COMMIT TRANSACTION;
