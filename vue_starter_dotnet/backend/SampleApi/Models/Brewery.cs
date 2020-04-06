@@ -17,7 +17,7 @@ namespace SampleApi.Models
         public string ZipCode { get; set; }
         public string ImageLocation { get; set; }
         public string Type { get; set; }
-        public DateTime Established { get; set; }
+        public DateTime? Established { get; set; }
         public string BackgroundInfo { get; set; }
     }
 }

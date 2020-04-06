@@ -4,8 +4,8 @@ USE master;
 GO
 
 -- Delete the DemoDB Database (IF EXISTS)
-IF EXISTS(select * from sys.databases where name='DemoDB')
-DROP DATABASE DemoDB;
+--IF EXISTS(select * from sys.databases where name='DemoDB')
+DROP DATABASE IF EXISTS DemoDB;
 GO
 
 -- Create a new DemoDB Database

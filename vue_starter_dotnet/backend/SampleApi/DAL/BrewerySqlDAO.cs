@@ -85,7 +85,7 @@ namespace SampleApi.DAL
 
         private Brewery MapToBrewery(SqlDataReader reader)
         {
-            return new Brewery()
+            /*return new Brewery()
             {
                 Id = Convert.ToInt32(reader["location_id"]),
                 Name = Convert.ToString(reader["location_name"]),
@@ -98,7 +98,20 @@ namespace SampleApi.DAL
                 Type = Convert.ToString(reader["bar_brewery_brewpub"]),
                 Established = Convert.ToDateTime(reader["established"]),
                 BackgroundInfo = Convert.ToString(reader["background_info"])
-            };
+            };*/
+            var b = new Brewery();
+            b.Id = Convert.ToInt32(reader["location_id"]);
+            b.Name = Convert.ToString(reader["location_name"]);
+            b.Address_1 = Convert.ToString(reader["address_line1"]);
+            b.Address_2 = Convert.ToString(reader["address_line2"]);
+            b.City = Convert.ToString(reader["city"]);
+            b.District = Convert.ToString(reader["district"]);
+            b.ZipCode = Convert.ToString(reader["zipcode"]);
+            b.ImageLocation = Convert.ToString(reader["image_address"]);
+            b.Type = Convert.ToString(reader["bar_brewery_brewpub"]);
+            if (!Convert.IsDBNull(reader["established"])) { b.Established = Convert.ToDateTime(reader["established"]); }
+            b.BackgroundInfo = Convert.ToString(reader["background_info"]);
+            return b;
         }
 
         public Brewery GetBrewery()
