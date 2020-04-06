@@ -33,9 +33,7 @@ CREATE TABLE brewery
 (
 	location_id int identity(1,1),
 	location_name varchar(50) not null,
-	bar	bit,
-	brewery bit,
-	brewpub bit,
+	bar_brewery_brewpub varchar(8) not null,
 	image_address varchar(200),
 	established date,
 	background_info varchar(500),
@@ -45,7 +43,8 @@ CREATE TABLE brewery
 	district varchar(20) not null,
 	zipcode varchar(15) not null,
 
-	constraint pk_location_id primary key (location_id)
+	constraint pk_location_id primary key (location_id),
+	constraint ck_brewery_bar_brewpub CHECK (bar_brewery_brewpub IN ('Bar', 'Brewery','Brewpub'))
 );
 
 CREATE TABLE beer_info
