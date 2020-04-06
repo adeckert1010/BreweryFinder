@@ -14,14 +14,19 @@ namespace SampleApi.DAL
         /// </summary>
         /// <returns></returns>
         Brewery AddBrewery();
-
+        
         //read
         /// <summary>
         /// Gets all Breweries
         /// </summary>
-        void GetBreweries();
+        IList<Brewery> GetBreweries();
+        Brewery GetBrewery();
         //update
+        bool UpdateBrewery(Brewery brewery);
 
+        bool AddBeer(int beerId, int breweryId);
+        bool DeleteBeer(Beer beer);
         //delete
+        bool DeleteBrewery(Brewery brewery);
     }
 }
