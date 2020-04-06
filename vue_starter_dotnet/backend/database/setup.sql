@@ -33,9 +33,9 @@ CREATE TABLE main
 (
 	location_id int identity(1,1),
 	location_name varchar(50) not null,
-	bar	bit not null,
-	brewery bit not null,
-	brewpub bit not null,
+	bar	bit,
+	brewery bit,
+	brewpub bit,
 	image_address varchar(200),
 	established date,
 	background_info varchar(500),
@@ -75,5 +75,13 @@ INSERT INTO users
   (username,password,salt,role)
 VALUES
   ('user', 'jUE98uhvS5tdIlxRsmz1W7/Qaqo=', '9CWPUTvXqQ4=', 'User');
+
+COMMIT TRANSACTION;
+
+BEGIN TRANSACTION;
+
+INSERT INTO main
+	(location_name,brewpub,image_address,background_info,address_line1,city,district,zipcode)
+VALUES ('Taft', 1, 'https://cdn.citybeat.com/files/base/scomm/cb/image/2016/06/960w/eats_tafts-ale-house_photo-jesse-fox.jpg','This is a brewery AND a pub', '1429 Race Street', 'Cincinnati', 'OH', '45202' )
 
 COMMIT TRANSACTION;
