@@ -55,7 +55,7 @@ CREATE TABLE beer_info
 	beer_description varchar(500) not null,
 	beer_image varchar(200),
 	abv decimal not null,
-	ibu decimal,
+	ibu int,
 	beer_type varchar(50)
 
 	constraint pk_beer_id primary key (beer_id)
@@ -66,8 +66,7 @@ CREATE TABLE beer_location
 	beer_id int not null,
 	location_id int not null,
 
-	foreign key (beer_id) references beer_info(beer_id),
-	foreign key (location_id) references main(location_id)
+   CONSTRAINT pk_beer_location_beer_id_location_id PRIMARY KEY (beer_id,location_id)
 );
 
 -- default username of 'user' and default password of 'greatwall'
@@ -82,6 +81,14 @@ BEGIN TRANSACTION;
 
 INSERT INTO main
 	(location_name,brewpub,image_address,background_info,address_line1,city,district,zipcode)
-VALUES ('Taft', 1, 'https://cdn.citybeat.com/files/base/scomm/cb/image/2016/06/960w/eats_tafts-ale-house_photo-jesse-fox.jpg','This is a brewery AND a pub', '1429 Race Street', 'Cincinnati', 'OH', '45202' )
+VALUES ('Taft', 1, 'https://cdn.citybeat.com/files/base/scomm/cb/image/2016/06/960w/eats_tafts-ale-house_photo-jesse-fox.jpg','This is a brewery AND a pub', '1429 Race Street', 'Cincinnati', 'OH', '45202' );
+
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Nellies Keylime', 'Delicious and nutritious, part of this balanced breakfast', 'https://i1.wp.com/www.thegnarlygnome.com/wp-content/uploads/2017/09/Tafts-Nellies-1.jpg?resize=300%2C300&ssl=1', 4.8, 19,'Fruit and Field')
+
+INSERT INTO beer_location
+ (beer_id, location_id)
+ VALUES (1,1)
 
 COMMIT TRANSACTION;
