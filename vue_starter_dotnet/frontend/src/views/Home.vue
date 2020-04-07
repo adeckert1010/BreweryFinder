@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="brewery" :key="brewery.id" v-for="brewery in breweries">
-      <brewery/>
+     <brewery v-bind:brewery = brewery></brewery>
     </div>
   </div>
 </template>
