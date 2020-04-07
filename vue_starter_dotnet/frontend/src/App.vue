@@ -26,7 +26,7 @@ body {
   background-color:#264653;
   color: #F4A261;
   display:flex;
-  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 img {
@@ -53,7 +53,7 @@ input[type=text],  input[type=password]{
   border: none;
   margin-top: 8px;
   margin-right: 16px;
-  font-size: ;
+  font-size: 16px;
   background-color: var(--jungle-green);
 }
 

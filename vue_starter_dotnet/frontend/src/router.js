@@ -45,6 +45,7 @@ const router = new Router({
         requiresAuth: false
       }
     }
+    
   ]
 })
 
