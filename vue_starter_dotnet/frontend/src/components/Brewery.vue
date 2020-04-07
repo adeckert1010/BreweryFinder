@@ -4,7 +4,8 @@
     <h2>{{brewery.name}}</h2>
     <img :src="brewery.imageLocation" :alt="brewery.name" @click="changeHidden"/>
     <div v-if="isHidden">
-      Hidden div
+      <p></p>
+      <!-- <router-link>See Beers available</router-link> -->
     </div>
   </div>
 </template>

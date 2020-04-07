@@ -21,4 +21,8 @@ html {
   --sandy-brown: #F4A261;
   --light-red-ochre: #E76F51;
 }
+
+nav a {
+  color: var(--jungle-green);
+}
 </style>
