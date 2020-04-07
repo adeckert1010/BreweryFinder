@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 
+
 Vue.use(Router)
 
 /**
@@ -25,7 +26,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -43,7 +44,7 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    },
+    }
   ]
 })
 
