@@ -22,7 +22,48 @@ html {
   --light-red-ochre: #E76F51;
 }
 
-nav a {
+body {
+  background-color:#264653;
+  color: #F4A261;
+  display:flex;
+  
+}
+
+img {
+  height: 50%;
+  width:50%;
+  border-radius: 5px;
+  float: left;
+width: 50%;
+height: 90%;
+}
+
+button{
+  background-color:var(--light-red-ochre);
+  color: lightslategray;
+}
+
+a {
   color: var(--jungle-green);
 }
+
+input[type=text],  input[type=password]{
+  
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: ;
+  background-color: var(--jungle-green);
+}
+
+.info{
+  float: right;
+}
+
+.beer-list{
+  float:none;
+}
+
+
 </style>
