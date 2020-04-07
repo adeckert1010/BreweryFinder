@@ -4,7 +4,11 @@
     <h2>{{brewery.name}}</h2>
     <img :src="brewery.imageLocation" :alt="brewery.name" @click="changeHidden"/>
     <div v-if="isHidden">
-      <p></p>
+      <p>{{brewery.address_1}} {{brewery.address_2}} {{brewery.city}}, {{brewery.district}} {{brewery.zipCode}}</p>
+      <p>{{brewery.type}}</p>
+      <p v-if="brewery.established">{{brewery.established}}</p>
+      <p>{{brewery.backgroundInfo}}</p>
+      <beers v-bind:breweryId="brewery.id"></beers>
       <!-- <router-link>See Beers available</router-link> -->
     </div>
   </div>
@@ -15,7 +19,10 @@ export default {
     
     name: "brewery",
     data() {
-      return {isHidden: true}
+      return {
+        isHidden: true,
+        beers: []
+        }
     },
     
     props: {
