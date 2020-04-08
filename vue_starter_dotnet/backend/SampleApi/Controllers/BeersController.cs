@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SampleApi.DAL;
 using SampleApi.Models;
 
 namespace SampleApi.Controllers
@@ -12,19 +13,26 @@ namespace SampleApi.Controllers
     [ApiController]
     public class BeersController : ControllerBase
     {
+        private IBeerDAO beerDAO;
+
+        public BeersController(IBeerDAO dao)
+        {
+            this.beerDAO = dao;
+        }
+
         // GET: api/Beers
-        //[HttpGet]
-        //public IEnumerable<Beer> Get()
-        //{
-        //    return
-        //}
+        [HttpGet]
+        public IEnumerable<Beer> Get()
+        {
+            return beerDAO.GetBeers();
+        }
 
         // GET: api/Beers/5
         [Route("api/beers/{id}")]
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<Beer> Get(int id)
         {
-            return "value";
+            return beerDAO.GetBeersAtBrewery(id);
         }
 
         // POST: api/Beers

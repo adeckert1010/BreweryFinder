@@ -41,7 +41,7 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM brewery", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM beer_info", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -66,7 +66,29 @@ namespace SampleApi.DAL
 
         public IList<Beer> GetBeersAtBrewery(int breweryId)
         {
-            throw new NotImplementedException();
+            IList<Beer> beers = new List<Beer>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM beer_info JOIN beer_location ON beer_location.beer_id = beer_info.beer_id JOIN brewery ON brewery.location_id = beer_location.location_id WHERE brewery.location_id = @breweryId; ", conn);
+
+                    cmd.Parameters.AddWithValue("@breweryId", breweryId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        beers.Add(MapToBeer(reader));
+                    }
+                }
+
+                return beers;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
         }
 
         private Beer MapToBeer(SqlDataReader reader)

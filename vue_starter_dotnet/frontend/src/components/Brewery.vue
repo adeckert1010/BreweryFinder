@@ -8,7 +8,7 @@
       <p>{{brewery.type}}</p>
       <p v-if="brewery.established">{{brewery.established}}</p>
       <p>{{brewery.backgroundInfo}}</p>
-      <beers v-bind:breweryId="brewery.id"></beers>
+      <beers v-for="beer in beers" v-bind:key="beer.beerId" v-bind:breweryId="brewery.id"></beers>
       <!-- <router-link>See Beers available</router-link> -->
     </div>
   </div>
@@ -33,6 +33,22 @@ export default {
       changeHidden() {
         this.isHidden = !this.isHidden;
       }
+    },
+    created(){
+      fetch(`${process.env.VUE_APP_REMOTE_API}/beers/${this.brewery.id}`, {
+      method: "GET",
+      headers: {
+        Accept : "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.beers = data;
+      })
+      .catch(err => console.error(err));
     }
     
 }

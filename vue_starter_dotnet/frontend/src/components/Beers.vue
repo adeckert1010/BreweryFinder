@@ -1,24 +1,23 @@
 <template>
   <div class="beers">
-      <table>
-      </table>
+      <h3>{{beer.beer_name}}</h3>
+      <p>{{beer.beer_description}}</p>
+      <img :src="beer.beer_image" :alt="beer.beer_name"/>
+      <p>ABV: {{beer.abv}}</p>
+      <p>IBU: {{beer.ibu}}</p>
+      <p>{{beer.beer_type}}</p>
   </div>
 </template>
 
 <script>
 export default {
     data() {
-        
+    
     },
     props: {
         breweryId: Number,
         beer: {}
-    },
-    created() {
-        fetch(`${process.env.VUE_APP_REMOTE_API}/beers/breweryId/:breweryId`)
-    
     }
-    
 }
 </script>
 
