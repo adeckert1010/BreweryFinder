@@ -28,7 +28,7 @@ namespace SampleApi.DAL
         /// Gets one Beer
         /// </summary>
         /// <returns></returns>
-        Beer GetBeer();
+        Beer GetBeer(int beerId);
         
         //update
         bool UpdateBeer();

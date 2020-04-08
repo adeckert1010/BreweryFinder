@@ -1,10 +1,12 @@
 <template>
-  <div id="app">
-    <div id="nav">
+  <v-app>
+    <v-toolbar app dark class="indigo">
+    
       <router-link to="/">Home</router-link>
-    </div>
+   </v-toolbar>
     <router-view/>
-  </div>
+    
+  </v-app>
 </template>
 
 <script>
@@ -14,7 +16,7 @@ export default {
 </script>
 
 <style>
-html {
+/* html {
   --japanese-indigo: #264653;
   --jungle-green: #2A9D8F;
   --hansa-yellow: #E9C46A;
@@ -29,14 +31,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-img {
-  height: 50%;
-  width:50%;
-  border-radius: 5px;
-  float: left;
-width: 50%;
-height: 90%;
-}
+
 
 button{
   background-color:var(--light-red-ochre);
@@ -55,8 +50,15 @@ input[type=text],  input[type=password]{
   margin-right: 16px;
   font-size: 16px;
   background-color: var(--jungle-green);
+} */
+img {
+  height: 50%;
+  width:50%;
+  border-radius: 5px;
+  float: left;
+width: 50%;
+height: 90%;
 }
-
 .info{
   float: right;
 }

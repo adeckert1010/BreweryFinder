@@ -22,6 +22,7 @@ export default {
     fetch(`${process.env.VUE_APP_REMOTE_API}/breweries`, {
       method: "GET",
       headers: {
+        Accept: "application/json",
         "Content-Type": "application/json"
       }
     })
