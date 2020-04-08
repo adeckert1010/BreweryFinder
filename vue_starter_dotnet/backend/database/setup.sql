@@ -1,4 +1,5 @@
 
+
 -- Switch to the system (aka master) database
 USE master;
 GO
@@ -117,7 +118,7 @@ VALUES ('Cheetah Lager', 'No cheetahs were harmed in the making of this deliciou
 
 INSERT INTO beer_info
 	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
-VALUES ('Little Bubs', 'Delicious Ale for the sweeter side of life.  Made with cranberry, apple, and peach', 'https://rhinegeist.com/wp-content/uploads/2019/02/LittleBubs_12oz.png', 4.7, 0,'Session Rosé Ale');
+VALUES ('Little Bubs', 'Delicious Ale for the sweeter side of life.  Made with cranberry, apple, and peach', 'https://rhinegeist.com/wp-content/uploads/2019/02/LittleBubs_12oz.png', 4.7, 0,'Session RosÃ© Ale');
 
 INSERT INTO beer_info
 	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
