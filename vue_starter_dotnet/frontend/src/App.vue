@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <v-toolbar app dark class="indigo">
+    <v-app-bar app dark class="indigo">
     
       <router-link to="/">Home</router-link>
-   </v-toolbar>
+   </v-app-bar>
     <router-view/>
     
   </v-app>
@@ -52,12 +52,11 @@ input[type=text],  input[type=password]{
   background-color: var(--jungle-green);
 } */
 img {
-  height: 50%;
-  width:50%;
+  height: 25%;
+  width:25%;
   border-radius: 5px;
   float: left;
-width: 50%;
-height: 90%;
+
 }
 .info{
   float: right;
