@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <v-toolbar app dark class="indigo">
+    <v-app-bar app dark class="indigo">
     
       <router-link to="/">Home</router-link>
-   </v-toolbar>
+    </v-app-bar>
     <router-view/>
     
   </v-app>
