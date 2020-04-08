@@ -186,7 +186,13 @@ INSERT INTO beer_info
 	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
 VALUES ('Zen', 'A dry hopped beer with high level fruit and citrus aroma. Let Zen embrace you. ', 'https://rhinegeist.com/wp-content/uploads/2018/08/SingleCalendarCan_Zen_001a-768x1300.png', 4.8, 45,'Session IPA');
 
+--b20 l3
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Lift', 'This refreshing brew will take you to a relaxing place with a hint of orange goodness.', 'https://beerconnoisseur.com/sites/default/files/styles/beer_page_245w/public/beer/lift-by-madtree-brewing-co.jpg?itok=JdcC9sBa', 4.7, 11,'Crisp Golden Ale');
 
+
+INSERT INTO beer_location (beer_id, location_id) VALUES (20,3);
 INSERT INTO beer_location (beer_id, location_id) VALUES (19,2);
 INSERT INTO beer_location (beer_id, location_id) VALUES (18,2);
 INSERT INTO beer_location (beer_id, location_id) VALUES (17,2);
