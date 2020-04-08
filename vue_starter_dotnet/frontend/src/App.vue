@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    
     <v-app-bar app dark class="indigo">
     
       <router-link to="/">Home</router-link>
