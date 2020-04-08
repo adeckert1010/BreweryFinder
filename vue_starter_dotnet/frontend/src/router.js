@@ -4,6 +4,7 @@ import auth from './auth'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
+import Logout from './views/Logout.vue'
 
 
 Vue.use(Router)
@@ -41,6 +42,14 @@ const router = new Router({
       path: "/register",
       name: "register",
       component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/logout",
+      name: "logout",
+      component: Logout,
       meta: {
         requiresAuth: false
       }

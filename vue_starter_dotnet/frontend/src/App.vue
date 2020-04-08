@@ -1,18 +1,19 @@
 <template>
   <v-app>
     <v-app-bar app dark class="indigo">
-    
-      <router-link to="/">Home</router-link>
+      <v-btn>
+        <router-link :to="{name: 'home'}">Home</router-link>
+      </v-btn>
+      <v-btn>
+        <router-link :to="{name: 'login'}">Login</router-link>
+      </v-btn>
     </v-app-bar>
-    <router-view/>
-    
+    <router-view /> 
   </v-app>
 </template>
 
 <script>
-export default {
-  
-}
+export default {};
 </script>
 
 <style>
@@ -51,21 +52,25 @@ input[type=text],  input[type=password]{
   font-size: 16px;
   background-color: var(--jungle-green);
 } */
+
+body {
+  background-color: #264653;
+  color: #f4a261;
+  padding-top: 80px;
+}
 img {
   height: 50%;
-  width:50%;
+  width: 50%;
   border-radius: 5px;
   float: left;
-width: 50%;
-height: 90%;
+  width: 50%;
+  height: 90%;
 }
-.info{
+.info {
   float: right;
 }
 
-.beer-list{
-  float:none;
+.beer-list {
+  float: none;
 }
-
-
 </style>

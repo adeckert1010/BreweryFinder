@@ -12,9 +12,6 @@
 <script>
 export default {
     name: "beers",
-    data() {
-    
-    },
     props: {
         beer: Object
     }
