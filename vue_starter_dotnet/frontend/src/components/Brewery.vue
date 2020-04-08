@@ -1,6 +1,5 @@
 <template>
   <div class="brewery">
-    Text
     <h2>{{brewery.name}}</h2>
     <img :src="brewery.imageLocation" :alt="brewery.name" @click="changeHidden"/>
     <div v-if="isHidden">
@@ -8,7 +7,9 @@
       <p>{{brewery.type}}</p>
       <p v-if="brewery.established">{{brewery.established}}</p>
       <p>{{brewery.backgroundInfo}}</p>
-      <beers v-for="beer in beers" v-bind:key="beer.beerId" v-bind:breweryId="brewery.id"></beers>
+      <div  v-for="beer in beers" v-bind:key="beer.id">
+        <beers v-bind:beer= beer></beers>
+      </div>
       <!-- <router-link>See Beers available</router-link> -->
     </div>
   </div>
@@ -20,7 +21,7 @@ export default {
     name: "brewery",
     data() {
       return {
-        isHidden: true,
+        isHidden: false,
         beers: []
         }
     },

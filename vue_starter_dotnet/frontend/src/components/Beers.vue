@@ -15,8 +15,7 @@ export default {
     
     },
     props: {
-        breweryId: Number,
-        beer: {}
+        beer: Object
     }
 }
 </script>
