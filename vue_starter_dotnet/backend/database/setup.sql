@@ -82,22 +82,27 @@ INSERT INTO users
 VALUES
   ('user', 'jUE98uhvS5tdIlxRsmz1W7/Qaqo=', '9CWPUTvXqQ4=', 'User');
 
+--b1
 INSERT INTO brewery
 	(location_name,bar_brewery_brewpub,image_address,background_info,address_line1,city,district,zipcode)
 VALUES ('Taft', 'Brewpub', 'https://cdn.citybeat.com/files/base/scomm/cb/image/2016/06/960w/eats_tafts-ale-house_photo-jesse-fox.jpg','This is a brewery AND a pub', '1429 Race Street', 'Cincinnati', 'OH', '45202' );
 
+--b2
 INSERT INTO brewery
 	(location_name,bar_brewery_brewpub,image_address,background_info,address_line1,city,district,zipcode)
 VALUES ('Rhinegeist Brewery', 'Brewpub', 'https://cincinnatiusa.com/sites/default/files/styles/Array/public/articlephotos/rhinegeist8.JPG', 'Locally made brews and local people.  What more do you need in life?', '1910 Elm Street', 'Cincinnati', 'OH', '45202');
 
+--b3
 INSERT INTO brewery
 	(location_name,bar_brewery_brewpub,image_address,background_info,address_line1,city,district,zipcode)
 VALUES ('Madtree Brewing', 'Brewpub', 'https://www.cincinnatidesignawards.com/wp-content/uploads/05_MadTree_AIA-1024x672.jpg', 'Madtree sounded cooler than Happytree.  Drink-Up', '3301 Madison Road', 'Cincinnati', 'OH', '45209');
 
+--b1 l1
 INSERT INTO beer_info
 	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
-VALUES ('Nellies Keylime', 'Delicious and nutritious, part of this balanced breakfast', 'https://i1.wp.com/www.thegnarlygnome.com/wp-content/uploads/2017/09/Tafts-Nellies-1.jpg?resize=300%2C300&ssl=1', 4.8, 19,'Fruit and Field');
+VALUES ('Nellie''s Keylime', 'Delicious and nutritious, part of this balanced breakfast', 'https://i1.wp.com/www.thegnarlygnome.com/wp-content/uploads/2017/09/Tafts-Nellies-1.jpg?resize=300%2C300&ssl=1', 4.8, 19,'Fruit and Field');
 
+--b2 l1
 INSERT INTO beer_info
 	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
 VALUES ('Gavel Banger', 'American IPA brewed and dry hopped with heaps of Amariolla, Citra and Simcoe hops.', 'http://taftsbeer.com/content/uploads/2019/09/gavelbanger_can.png', 7.0, 65,'American IPA');
@@ -122,34 +127,85 @@ INSERT INTO beer_info
 	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
 VALUES ('Happy Amber', 'Delightful caramel meets a floral adventure in this ale.  You deserve to indulge', 'https://images.ctfassets.net/qe08557i7rmu/6b4I8eg6CAIg8WCo4QaeE6/9d2027abc5d4cf8a5766c9d3d758d71f/Madtree_Happy_Amber_17-10-25_CBB_Issue23_reviews-051_8x10.jpg?w=900', 6.0, 30,'Amber Ale');
 
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Maverick Chocolate Porter', 'Brown porter and Maverick chocolate.  Questions?', 'https://taftsbeer.com/content/uploads/2019/10/mav.png', 5.5, 23,'Porter');
 
-INSERT INTO beer_location
- (beer_id, location_id)
- VALUES (1,1);
+--beer 9 location 1
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Nellie''s Raspberry', 'Caribbean ale with a touch of raspberry. Nellie wouldn''t steer you wrong.', 'https://taftsbeer.com/content/uploads/2019/10/nellies-pink_can.png', 4.8, 19,'Raspberry Ale');
 
- INSERT INTO beer_location
- (beer_id, location_id)
- VALUES (2,1);
+--b10 l1
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Cincy Cobra', 'Packs the citrus punch of Cincinnati legend Ezzard Charles.', 'https://taftsbeer.com/content/uploads/2019/10/cinci_can.png', 6.7, 44,'New England IPA');
 
- INSERT INTO beer_location
- (beer_id, location_id)
- VALUES (3,1);
+--b11 l1
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Nellie''s Winter Ale', 'Sweet orange peel and freshly ground coriander. A tasty wheat treat.', 'https://taftsbeer.com/content/uploads/2019/10/WinterNellies.png', 4.0, 12,'Witbier');
 
- INSERT INTO beer_location
- (beer_id, location_id)
- VALUES (4,2);
+--b13 l2
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Knowledge', 'Zesty, sharp, refined, with ingredients including dank sap.  Know it.', 'https://rhinegeist.com/wp-content/uploads/2018/08/Knowledge_Can_Render-768x1153.png', 8.5, 98,'Imperial IPA');
 
- INSERT INTO beer_location
- (beer_id, location_id)
- VALUES (5,2);
+--b12 l1
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Citrus IPA', 'Brewed with the Japanese Yuzu fruit alongside orange and pineapple hops.  A tasty seasonal treat.', 'https://taftsbeer.com/content/uploads/2019/10/citrus_can.png', 6.6, 45,'Citrus IPA');
 
- INSERT INTO beer_location
- (beer_id, location_id)
- VALUES (6,3);
+--b14 l2
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Oddjob', 'Bravely hopped with notes of pine, resin, blood orange, and ruby red grapefruit. It isn''t playing dirty to pick this Oddjob in multiplayer events.', 'https://rhinegeist.com/wp-content/uploads/2018/11/OddJob_Can_Render-768x1153.png', 8.3, 96,'Imperial IPA');
 
- INSERT INTO beer_location
- (beer_id, location_id)
- VALUES (7,3);
+--b15 l2
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Saber Tooth Tiger', 'This tiger will uppercut your senses with papaya, mango, and peach flavors across a lowkey bitter backdrop. ', 'https://rhinegeist.com/wp-content/uploads/2018/08/SaberToothTiger-768x1153.png', 8.5, 95,'Imperial IPA');
+
+--b16 l2
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Andromeda', 'This ale is as good as the similarly named Mass Effect title is bad.  Drink one for the commander.', 'https://rhinegeist.com/wp-content/uploads/2018/08/Andromeda_Can_Render-768x1153.png', 5.7, 48,'Pale Ale');
+
+--b17 l2
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Crash', 'So much to say about this beer...Too much for here.  Explosively hoppy - Tropically robust.', 'https://rhinegeist.com/wp-content/uploads/2018/08/SingleCalendarCan_Crash_001a-768x1300.png', 5.4, 44,'Pale Ale');
+
+--b18 l2
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Fiction', 'For the digital dreamer, New Zealand hops meet Belgian yeast.', 'https://rhinegeist.com/wp-content/uploads/2018/08/SingleCalendarCan_Fiction_001a-768x1300.png', 6.0, 40,'Belgian Style Pale Ale');
+
+--b19 l2
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Zen', 'A dry hopped beer with high level fruit and citrus aroma. Let Zen embrace you. ', 'https://rhinegeist.com/wp-content/uploads/2018/08/SingleCalendarCan_Zen_001a-768x1300.png', 4.8, 45,'Session IPA');
+
+
+INSERT INTO beer_location (beer_id, location_id) VALUES (19,2);
+INSERT INTO beer_location (beer_id, location_id) VALUES (18,2);
+INSERT INTO beer_location (beer_id, location_id) VALUES (17,2);
+INSERT INTO beer_location (beer_id, location_id) VALUES (16,2);
+INSERT INTO beer_location (beer_id, location_id) VALUES (15,2);
+INSERT INTO beer_location (beer_id, location_id) VALUES (14,2);
+INSERT INTO beer_location (beer_id, location_id) VALUES (13,2);
+INSERT INTO beer_location (beer_id, location_id) VALUES (12,1);
+INSERT INTO beer_location (beer_id, location_id) VALUES (11,1);
+INSERT INTO beer_location (beer_id, location_id) VALUES (10,1);
+INSERT INTO beer_location (beer_id, location_id) VALUES (9,1);
+INSERT INTO beer_location (beer_id, location_id) VALUES (1,1);
+INSERT INTO beer_location (beer_id, location_id) VALUES (2,1);
+INSERT INTO beer_location (beer_id, location_id) VALUES (3,1);
+INSERT INTO beer_location (beer_id, location_id) VALUES (4,2);
+INSERT INTO beer_location (beer_id, location_id) VALUES (5,2);
+INSERT INTO beer_location (beer_id, location_id) VALUES (6,3);
+INSERT INTO beer_location (beer_id, location_id) VALUES (7,3);
+INSERT INTO beer_location (beer_id, location_id) VALUES (8,1);
 
  ALTER TABLE user_beer 
  ADD FOREIGN KEY (id_user)
