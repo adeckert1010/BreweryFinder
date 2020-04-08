@@ -1,8 +1,8 @@
 <template>
   <div class="brewery">
     <h2>{{brewery.name}}</h2>
-    <img :src="brewery.imageLocation" :alt="brewery.name" @click="changeHidden"/>
-    <div v-if="isHidden">
+    <img :src="brewery.imageLocation" :alt="brewery.name" v-on:click="changeHidden"/>
+    <div v-show="isHidden">
       <p>{{brewery.address_1}} {{brewery.address_2}} {{brewery.city}}, {{brewery.district}} {{brewery.zipCode}}</p>
       <p>{{brewery.type}}</p>
       <p v-if="brewery.established">{{brewery.established}}</p>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import Beers from '@/components/Beers.vue'
 export default {
     
     name: "brewery",
@@ -25,7 +26,9 @@ export default {
         beers: []
         }
     },
-    
+    components: {
+      Beers
+    },
     props: {
       brewery: {}
       

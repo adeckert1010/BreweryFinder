@@ -28,7 +28,7 @@ namespace SampleApi.Controllers
         }
 
         // GET: api/Beers/5
-        [Route("api/beers/{id}")]
+        [Route("api/beers/brewery/{id}")]
         [HttpGet("{id}")]
         public IEnumerable<Beer> Get(int id)
         {

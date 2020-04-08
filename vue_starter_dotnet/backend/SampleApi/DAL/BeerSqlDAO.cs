@@ -28,9 +28,34 @@ namespace SampleApi.DAL
             throw new NotImplementedException();
         }
 
-        public Beer GetBeer()
+        public Beer GetBeer(int beerId)
         {
-            throw new NotImplementedException();
+            Beer beer = new Beer();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM beer_info
+                                                    WHERE beer_id = @beer_id; ", conn);
+
+                    cmd.Parameters.AddWithValue("@beer_id", beerId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        beer = MapToBeer(reader);
+                    } 
+
+
+                }
+
+                return beer;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
         }
 
         public IList<Beer> GetBeers()
@@ -72,7 +97,10 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM beer_info JOIN beer_location ON beer_location.beer_id = beer_info.beer_id JOIN brewery ON brewery.location_id = beer_location.location_id WHERE brewery.location_id = @breweryId; ", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM beer_info 
+                                                    JOIN beer_location ON beer_location.beer_id = beer_info.beer_id 
+                                                    JOIN brewery ON brewery.location_id = beer_location.location_id 
+                                                    WHERE brewery.location_id = @breweryId; ", conn);
 
                     cmd.Parameters.AddWithValue("@breweryId", breweryId);
                     SqlDataReader reader = cmd.ExecuteReader();
