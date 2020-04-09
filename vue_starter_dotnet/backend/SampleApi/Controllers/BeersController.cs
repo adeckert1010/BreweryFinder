@@ -9,7 +9,7 @@ using SampleApi.Models;
 
 namespace SampleApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/")]
     [ApiController]
     public class BeersController : ControllerBase
     {
@@ -33,6 +33,13 @@ namespace SampleApi.Controllers
         public IEnumerable<Beer> Get(int id)
         {
             return beerDAO.GetBeersAtBrewery(id);
+        }
+
+        [Route("api/beer/{id}")]
+        [HttpGet("{id}")]
+        public Beer GetABeer(int id)
+        {
+            return beerDAO.GetBeer(id);
         }
 
         // POST: api/Beers

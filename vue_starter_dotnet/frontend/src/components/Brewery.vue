@@ -8,7 +8,7 @@
       <p v-if="brewery.established">{{brewery.established}}</p>
       <p>{{brewery.backgroundInfo}}</p>
       <v-card class="primary" v-for="beer in beers" v-bind:key="beer.id">
-        <v-list-item><beers v-bind:beer= beer></beers></v-list-item>
+        <v-list-item><beer v-bind:beer= beer></beer></v-list-item>
       </v-card>
       <!-- <router-link>See Beers available</router-link> -->
     </div>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Beers from '@/components/Beers.vue'
+import Beer from '@/components/Beer.vue'
 export default {
     
     name: "brewery",
@@ -27,7 +27,7 @@ export default {
         }
     },
     components: {
-      Beers
+      Beer
     },
     props: {
       brewery: {}

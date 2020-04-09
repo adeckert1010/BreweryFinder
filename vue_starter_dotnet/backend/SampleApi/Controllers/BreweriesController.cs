@@ -12,6 +12,7 @@ using SampleApi.Providers.Security;
 
 namespace SampleApi.Controllers
 {
+    //move routes for each function/method/whatever
     [Route("api/[controller]")]
     [ApiController]
     public class BreweriesController : ControllerBase
@@ -32,7 +33,7 @@ namespace SampleApi.Controllers
         }
 
         // GET: api/Breweries/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
