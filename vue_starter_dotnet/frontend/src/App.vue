@@ -1,17 +1,18 @@
 <template>
   <v-app>
     <v-app-bar app dark class="indigo">
-      <v-app-bar-title>Brewery Friend Finder</v-app-bar-title>
+      <v-app-bar-title><router-link :to="{name: 'home'}">Brewery Friend Finder</router-link></v-app-bar-title>
       <v-spacer></v-spacer>
       <v-btn>
         <router-link :to="{name: 'home'}">Home</router-link>
       </v-btn>
-      <v-btn>
-        <router-link :to="{name: 'login'}">Login</router-link>
-      </v-btn>
-      <v-btn>
+      <v-btn v-if="user">
         <router-link :to="{name: 'logout'}">Logout</router-link>
       </v-btn>
+      <v-btn v-else>
+        <router-link :to="{name: 'login'}">Login</router-link>
+      </v-btn>
+      
     </v-app-bar>
     <router-view /> 
   </v-app>
@@ -67,15 +68,15 @@ img {
   height: 50%;
   width: 50%;
   border-radius: 5px;
-  float: left;
+
   width: 50%;
   height: 90%;
 }
 .info {
-  float: right;
+
 }
 
 .beer-list {
-  float: none;
+
 }
 </style>
