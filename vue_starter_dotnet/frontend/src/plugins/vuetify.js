@@ -1,26 +1,34 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
 
-Vue.use(Vuetify, {
-    theme: {
-        themes: {
-            dark: {
-        primary: '#264653',
-        secondary: '#2A9D8F',
-        accent: '#E9C46A',
-        error: '#FF5252',//not our choice
-        info: '#F4A261',
-        success: '#E76F51',
-        warning: '#FFC107',//not our choice
-    }}}
-});
 
 
-
-// Vue.use(Vuetify);
+ Vue.use(Vuetify);
 
 export default new Vuetify({
+    icons: {
+      iconfont: 'mdi',
+    },
     theme: {
-        dark: true
-    }
-});
+      themes: {
+        light: {
+          primary: "#2A9D8F",
+          error: "#ff8888",
+          success: "#45a5ae",
+
+          secondary: '#264653',
+          accent: '#8c9eff',
+        },
+        dark: {
+          primary: "#ffcc50",
+          error: "#ff8888",
+          success: "#45a5ae",
+
+          secondary: '#b0bec5',
+          accent: '#F4A261',
+
+        },
+      },
+    },
+
+  });
