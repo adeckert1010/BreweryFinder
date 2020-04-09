@@ -51,7 +51,7 @@ const router = new Router({
       name: "logout",
       component: Logout,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     }
     
