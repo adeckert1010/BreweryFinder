@@ -1,16 +1,19 @@
 <template>
   <v-app>
-    <v-app-bar app dark class="indigo">
-      <v-app-bar-title><router-link :to="{name: 'home'}">Brewery Friend Finder</router-link></v-app-bar-title>
+    <v-app-bar app color="accent">
+      <v-app-bar-title><router-link id ="nav-bar-title" :to="{name: 'home'}">Brewery Friend Finder</router-link></v-app-bar-title>
       <v-spacer></v-spacer>
-      <v-btn>
-        <router-link :to="{name: 'home'}">Home</router-link>
+      <v-btn to="/home">
+      Home
+        <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
       </v-btn>
-      <v-btn v-if="user">
-        <router-link :to="{name: 'logout'}">Logout</router-link>
+      <v-btn to ="/logout" v-if="user">
+      Logout
+        <!-- <router-link :to="{name: 'logout'}">Logout</router-link> -->
       </v-btn>
-      <v-btn v-else>
-        <router-link :to="{name: 'login'}">Login</router-link>
+      <v-btn to="/login" v-else>
+      Login
+        <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
       
     </v-app-bar>
@@ -23,14 +26,14 @@ export default {};
 </script>
 
 <style>
-/* html {
+ html {
   --japanese-indigo: #264653;
   --jungle-green: #2A9D8F;
   --hansa-yellow: #E9C46A;
   --sandy-brown: #F4A261;
   --light-red-ochre: #E76F51;
 }
-
+/*
 body {
   background-color:#264653;
   color: #F4A261;
@@ -72,11 +75,18 @@ img {
   width: 50%;
   height: 90%;
 }
+
+
+
 .info {
 
 }
 
 .beer-list {
 
+}
+#nav-bar-title{
+  text-decoration: none;
+  color: #E9C46A;
 }
 </style>
