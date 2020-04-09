@@ -22,7 +22,7 @@
         <p>{{brewery.backgroundInfo}}</p>
         <v-card class="accent">
           <v-list-item v-for="beer in beers" v-bind:key="beer.id">
-            <beers v-bind:beer="beer"></beers>
+            <beer v-bind:beer="beer"></beer>
           </v-list-item>
         </v-card>
       </div>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Beers from "@/components/Beers.vue";
+import Beer from "@/components/Beer.vue";
 export default {
   name: "brewery",
   data() {
@@ -42,7 +42,7 @@ export default {
     };
   },
   components: {
-    Beers
+    Beer
   },
   props: {
     brewery: {}
