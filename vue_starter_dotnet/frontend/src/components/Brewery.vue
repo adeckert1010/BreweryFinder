@@ -7,9 +7,9 @@
       <p>{{brewery.type}}</p>
       <p v-if="brewery.established">{{brewery.established}}</p>
       <p>{{brewery.backgroundInfo}}</p>
-      <div  v-for="beer in beers" v-bind:key="beer.id">
-        <beers v-bind:beer= beer></beers>
-      </div>
+      <v-list  v-for="beer in beers" v-bind:key="beer.id">
+        <v-list-item><beers v-bind:beer= beer></beers></v-list-item>
+      </v-list>
       <!-- <router-link>See Beers available</router-link> -->
     </div>
   </div>
