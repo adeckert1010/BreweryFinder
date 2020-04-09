@@ -17,7 +17,7 @@ export default new Vuetify({
           success: "#45a5ae",
 
           secondary: '#264653',
-          accent: '#8c9eff',
+          accent: '#F4A261'
         },
         dark: {
           primary: "#ffcc50",
@@ -30,5 +30,4 @@ export default new Vuetify({
         },
       },
     },
-
   });
