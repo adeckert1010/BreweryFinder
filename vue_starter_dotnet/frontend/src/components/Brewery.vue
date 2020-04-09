@@ -1,48 +1,57 @@
 <template>
-  <div class="brewery">
-    <h2>{{brewery.name}}</h2>
-    <img :src="brewery.imageLocation" :alt="brewery.name" v-on:click="changeHidden"/>
-    <div v-show="isHidden">
-      <p>{{brewery.address_1}} {{brewery.address_2}} {{brewery.city}}, {{brewery.district}} {{brewery.zipCode}}</p>
-      <p>{{brewery.type}}</p>
-      <p v-if="brewery.established">{{brewery.established}}</p>
-      <p>{{brewery.backgroundInfo}}</p>
-      <v-card class="primary" v-for="beer in beers" v-bind:key="beer.id">
-        <v-list-item><beers v-bind:beer= beer></beers></v-list-item>
-      </v-card>
-      <!-- <router-link>See Beers available</router-link> -->
-    </div>
-  </div>
+  <v-card class="mx-auto primary" max-width="75%">
+    <v-img
+      :src="brewery.imageLocation"
+      :alt="brewery.name"
+      @click="isHidden = !isHidden"
+      class="align-end"
+      height="450px"
+    ></v-img>
+    <v-card-title>{{brewery.name}}</v-card-title>
+    <v-card-actions>
+      <v-btn icon @click="isHidden = !isHidden">
+        <v-icon>{{isHidden ? 'mdi-chevron-up' : 'mdi-chevron-down'}}</v-icon>
+      </v-btn>
+    </v-card-actions>
+    <v-expand-transition>
+      <div v-show="isHidden">
+        <v-divider></v-divider>
+        <p>{{brewery.address_1}} {{brewery.address_2}} {{brewery.city}}, {{brewery.district}} {{brewery.zipCode}}</p>
+        <p>{{brewery.type}}</p>
+        <p v-if="brewery.established">{{brewery.established}}</p>
+        <p>{{brewery.backgroundInfo}}</p>
+        <v-card class="accent">
+          <v-list-item v-for="beer in beers" v-bind:key="beer.id">
+            <beers v-bind:beer="beer"></beers>
+          </v-list-item>
+        </v-card>
+      </div>
+    </v-expand-transition>
+    <!-- <router-link>See Beers available</router-link> -->
+  </v-card>
 </template>
 
 <script>
-import Beers from '@/components/Beers.vue'
+import Beers from "@/components/Beers.vue";
 export default {
-    
-    name: "brewery",
-    data() {
-      return {
-        isHidden: false,
-        beers: []
-        }
-    },
-    components: {
-      Beers
-    },
-    props: {
-      brewery: {}
-      
-    },
-    methods: {
-      changeHidden() {
-        this.isHidden = !this.isHidden;
-      }
-    },
-    created(){
-      fetch(`${process.env.VUE_APP_REMOTE_API}/beers/${this.brewery.id}`, {
+  name: "brewery",
+  data() {
+    return {
+      isHidden: false,
+      beers: []
+    };
+  },
+  components: {
+    Beers
+  },
+  props: {
+    brewery: {}
+  },
+  created() {
+    fetch(`${process.env.VUE_APP_REMOTE_API}/beers/${this.brewery.id}`, {
       method: "GET",
       headers: {
-        Accept : "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json"
       }
     })
@@ -53,11 +62,9 @@ export default {
         this.beers = data;
       })
       .catch(err => console.error(err));
-    }
-    
-}
+  }
+};
 </script>
 
 <style>
-
 </style>
