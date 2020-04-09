@@ -3,7 +3,7 @@
     <v-app-bar app color="accent">
       <v-app-bar-title><router-link id ="nav-bar-title" :to="{name: 'home'}">Brewery Friend Finder</router-link></v-app-bar-title>
       <v-spacer></v-spacer>
-      <v-btn to="/home">
+      <v-btn to="/">
       Home
         <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
       </v-btn>
