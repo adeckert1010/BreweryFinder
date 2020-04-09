@@ -1,11 +1,16 @@
 <template>
   <v-app>
     <v-app-bar app dark class="indigo">
+      <v-app-bar-title>Brewery Friend Finder</v-app-bar-title>
+      <v-spacer></v-spacer>
       <v-btn>
         <router-link :to="{name: 'home'}">Home</router-link>
       </v-btn>
       <v-btn>
         <router-link :to="{name: 'login'}">Login</router-link>
+      </v-btn>
+      <v-btn>
+        <router-link :to="{name: 'logout'}">Logout</router-link>
       </v-btn>
     </v-app-bar>
     <router-view /> 
