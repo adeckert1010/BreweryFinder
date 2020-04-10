@@ -52,7 +52,7 @@ CREATE TABLE beer_info
 	beer_id int identity(1,1),
 	beer_name varchar(50) not null,
 	beer_description varchar(500) not null,
-	beer_image varchar(200),
+	beer_image varchar(500),
 	abv decimal not null,
 	ibu int,
 	beer_type varchar(50)
