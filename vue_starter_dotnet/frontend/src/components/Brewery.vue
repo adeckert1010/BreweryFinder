@@ -9,7 +9,7 @@
         class="align-end"
       ></v-img>
       <v-card-title class="headline" @click="isHidden = !isHidden">
-        <strong>{{brewery.name}}</strong>
+        {{brewery.name}}
         <v-spacer></v-spacer>
         <v-card-actions>
           <v-btn icon>

@@ -1,7 +1,7 @@
 <template>
-<div class="singleBeer">
+<v-container fluid class="singleBeer">
 <beer :beer = singleBeer></beer>
-</div>
+</v-container>
 </template>
 
 <script>
