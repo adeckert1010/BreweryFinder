@@ -1,13 +1,16 @@
 <template>
-  <div class="home">
-    <div class="brewery" :key="brewery.id" v-for="brewery in breweries">
-     <brewery v-bind:brewery = brewery></brewery>
-    </div>
-  </div>
+  <v-content class="home secondary">
+    <brewery
+      class="brewery"
+      :key="brewery.id"
+      v-for="brewery in breweries"
+      v-bind:brewery="brewery"
+    ></brewery>
+  </v-content>
 </template>
 
 <script>
-import Brewery from '@/components/Brewery.vue'
+import Brewery from "@/components/Brewery.vue";
 export default {
   components: {
     Brewery
