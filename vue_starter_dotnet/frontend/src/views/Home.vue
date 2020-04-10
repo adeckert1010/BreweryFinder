@@ -1,7 +1,6 @@
 <template>
   <v-content class="home secondary">
     <v-content class="brewery" :key="brewery.id" v-for="brewery in breweries">
-      <br>
      <brewery v-bind:brewery = brewery></brewery>
     </v-content>
   </v-content>
