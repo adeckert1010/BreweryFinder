@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-card class="mx-auto primary" max-width="90%" hover>
+    <v-card dark class="mx-auto primary" max-width="90%" hover>
       <v-img
         :lazy-src="brewery.imageLocation"
         :src="brewery.imageLocation"
@@ -8,7 +8,7 @@
         @click="isHidden = !isHidden"
         class="align-end"
       ></v-img>
-      <v-card-title class="headline text--secondary" @click="isHidden = !isHidden">
+      <v-card-title class="headline" @click="isHidden = !isHidden">
         <strong>{{brewery.name}}</strong>
         <v-spacer></v-spacer>
         <v-card-actions>
