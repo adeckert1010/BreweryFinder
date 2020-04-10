@@ -65,6 +65,7 @@ export default {
   },
   props: {
     brewery: {}
+    
   },
   created() {
     fetch(`${process.env.VUE_APP_REMOTE_API}/beers/${this.brewery.id}`, {
@@ -81,7 +82,9 @@ export default {
         this.beers = data;
       })
       .catch(err => console.error(err));
-  }
+  },
+
+ 
 };
 </script>
 

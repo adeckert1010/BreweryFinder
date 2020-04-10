@@ -1,26 +1,49 @@
 <template>
   <v-content class="home secondary">
+    <search-brewery v-on:filter="handleFilter" ></search-brewery>
     <brewery
       class="brewery"
       :key="brewery.id"
-      v-for="brewery in breweries"
+      v-for="brewery in filteredBreweries"
       v-bind:brewery="brewery"
+      v-bind:search="search"
     ></brewery>
   </v-content>
 </template>
 
 <script>
 import Brewery from "@/components/Brewery.vue";
+import SearchBrewery from "@/components/SearchBrewery.vue";
 export default {
   components: {
-    Brewery
+    Brewery,
+    SearchBrewery
   },
   name: "home",
   data() {
     return {
-      breweries: []
+      breweries: [],
+      search: ''
+
     };
   },
+
+
+  methods: {
+    handleFilter(search){
+      this.search = search;
+    }
+    //return breweries where it matches what is in search bar
+   
+  },
+
+   computed: {
+     filteredBreweries() {
+        const filter = new RegExp(this.search,'i');
+        return this.breweries.filter(Brewery => Brewery.name.match(filter));
+    }
+  },
+
   created() {
     fetch(`${process.env.VUE_APP_REMOTE_API}/breweries`, {
       method: "GET",
