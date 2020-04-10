@@ -3,16 +3,18 @@
     <v-app-bar app color="accent">
       <v-app-bar-title><router-link id ="nav-bar-title" :to="{name: 'home'}">Brewery Friend Finder</router-link></v-app-bar-title>
       <v-spacer></v-spacer>
+      <v-btn v-if="getUser()">{{getUser().sub}}</v-btn>
       <v-btn to="/">
       Home
         <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
       </v-btn>
       <!-- <span v-if="$auth.loading"> -->
-      <v-btn v-if="loggedIn" to="/logout" >
+      <!-- <v-btn @authenticated="user=getUser"  v-if="user" to="/logout" > -->
+      <v-btn v-if="getUser()" to="/logout" >
       Logout
         <!-- <router-link :to="{name: 'logout'}">Logout</router-link> -->
       </v-btn>
-      <v-btn v-else to="/login" >
+      <v-btn v-if = "!getUser()" to="/login" >
       Login
         <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
@@ -29,18 +31,24 @@ import auth from './auth';
 export default {
   data() {
             return {
-                loggedIn: Boolean,
-                user: Object
+                // loggedIn: Boolean,
+                //user: this.getUser()
                 
             }
         },
-  methods: {
-            created(){
-              this.user = auth.getUser();
-              this.loggedIn = this.user;
-              
-            }
+        methods:{
+          getUser(){
+            let newUser = auth.getUser();
+            console.log(newUser);
+            return auth.getUser();
+          }
+        },
+        created(){
+          this.user = auth.getUser();
+          this.loggedIn = this.user;
+          
         }
+        
 
 };
 </script>
@@ -85,16 +93,13 @@ input[type=text],  input[type=password]{
 body {
   background-color: #264653;
   color: #f4a261;
-  padding-top: 80px;
+
 }
-img {
+/* img {
   height: 50%;
   width: 50%;
   border-radius: 5px;
-
-  width: 50%;
-  height: 90%;
-}
+} */
 
 
 
