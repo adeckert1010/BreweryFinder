@@ -1,15 +1,47 @@
 <template>
-  <div id="login" class="text-center">
-    <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+<v-content>
+      <v-container
+        class="fill-height"
+        fluid
+      >
+  <v-card-text id="login">
+    <v-row
+          align="center"
+          justify="center"
+        >
+        <v-col
+            cols="12"
+            sm="8"
+            md="4"
+          >
+          <v-card class="elevation-12">
+            <v-toolbar
+                color="primary"
+                dark
+                flat
+              >
+          <v-toolbar-title>Please Sign In</v-toolbar-title>
+         </v-toolbar>
+         <v-card-text>
+    <v-form  @submit.prevent="login">
+      
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
       <div class="alert alert-success" role="alert" v-if="this.$route.query.registration">
         Thank you for registering, please sign in.
       </div>
-      <label for="username" class="sr-only">Username</label>
-      <input
+      <!-- <label for="username" class="sr-only">Username</label> -->
+      <v-text-field
+                    id="username"
+                    label="Username"
+                    name="username"
+                    prepend-icon="mdi-glass-mug-variant"
+                    type="text"
+                    v-model="user.username"
+                    required
+                  />
+      <!-- <input
         type="text"
         id="username"
         class="form-control"
@@ -17,8 +49,20 @@
         v-model="user.username"
         required
         autofocus
-      />
-      <label for="password" class="sr-only">Password</label>
+      /> -->
+
+      <v-text-field
+                    id="password"
+                    label="Password"
+                    name="password"
+                    class="form-control"
+                    prepend-icon="mdi-textbox-password"
+                    type="password"
+                    v-model="user.password"
+        required
+                  />
+
+      <!-- <label for="password" class="sr-only">Password</label>
       <input
         type="password"
         id="password"
@@ -26,11 +70,23 @@
         placeholder="Password"
         v-model="user.password"
         required
-      />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
-    </form>
-  </div>
+      /> -->
+      <v-card-actions>
+      <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
+      <v-btn to="/register">Register</v-btn>
+      <!-- <button type="submit">Sign in</button> -->
+      <v-spacer />
+      <v-btn color="primary" type="submit">Login</v-btn>
+      </v-card-actions>
+    </v-form>
+    </v-card-text>
+    </v-card>
+    </v-col>
+     </v-row>
+  </v-card-text>
+  </v-container>
+  </v-content>
+ 
 </template>
 
 <script>
