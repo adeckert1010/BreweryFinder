@@ -1,8 +1,9 @@
 <template>
 <v-content>
       <v-container
-        class="fill-height"
+        class="fill-height secondary"
         fluid
+        
       >
   <v-card-text id="login">
     <v-row
@@ -14,7 +15,7 @@
             sm="8"
             md="4"
           >
-          <v-card class="elevation-12">
+          <v-card class="elevation-12 info">
             <v-toolbar
                 color="primary"
                 dark
@@ -22,7 +23,7 @@
               >
           <v-toolbar-title>Please Sign In</v-toolbar-title>
          </v-toolbar>
-         <v-card-text>
+         <v-card-text >
     <v-form  @submit.prevent="login">
       
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
