@@ -1,9 +1,10 @@
 <template>
-  <div class="home">
-    <div class="brewery" :key="brewery.id" v-for="brewery in breweries">
+  <v-content class="home secondary">
+    <v-content class="brewery" :key="brewery.id" v-for="brewery in breweries">
+      <br>
      <brewery v-bind:brewery = brewery></brewery>
-    </div>
-  </div>
+    </v-content>
+  </v-content>
 </template>
 
 <script>

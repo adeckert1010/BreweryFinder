@@ -1,11 +1,11 @@
 <template>
-  <v-card class="mx-auto primary" max-width="75%">
+  <v-card class="mx-auto primary" max-width="75%" hover>
+    <v-container>
     <v-img
       :src="brewery.imageLocation"
       :alt="brewery.name"
       @click="isHidden = !isHidden"
       class="align-end"
-      height="450px"
     ></v-img>
     <v-card-title>{{brewery.name}}</v-card-title>
     <v-card-actions>
@@ -20,14 +20,15 @@
         <p>{{brewery.type}}</p>
         <p v-if="brewery.established">{{brewery.established}}</p>
         <p>{{brewery.backgroundInfo}}</p>
-        <v-card class="accent">
-          <v-list-item v-for="beer in beers" v-bind:key="beer.id">
-            <beer v-bind:beer="beer"></beer>
-          </v-list-item>
+        <v-card class="accent" hover>
+          <v-list v-for="beer in beers" v-bind:key="beer.id">
+            <v-list-item><beer v-bind:beer="beer"></beer></v-list-item>
+          </v-list>
         </v-card>
       </div>
     </v-expand-transition>
     <!-- <router-link>See Beers available</router-link> -->
+    </v-container>
   </v-card>
 </template>
 
