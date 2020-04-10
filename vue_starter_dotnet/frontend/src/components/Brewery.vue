@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-card class="mx-auto primary" max-width="80%" hover>
+  <v-container fluid>
+    <v-card class="mx-auto primary" max-width="90%" hover>
       <v-img
         :lazy-src="brewery.imageLocation"
         :src="brewery.imageLocation"
@@ -8,11 +8,11 @@
         @click="isHidden = !isHidden"
         class="align-end"
       ></v-img>
-      <v-card-title class="headline text--secondary">
+      <v-card-title class="headline text--secondary" @click="isHidden = !isHidden">
         <strong>{{brewery.name}}</strong>
         <v-spacer></v-spacer>
         <v-card-actions>
-          <v-btn icon @click="isHidden = !isHidden">
+          <v-btn icon>
             <v-icon>{{isHidden ? 'mdi-chevron-up' : 'mdi-chevron-down'}}</v-icon>
           </v-btn>
         </v-card-actions>
@@ -20,27 +20,27 @@
       <v-expand-transition>
         <v-card-text v-show="isHidden">
           <v-divider></v-divider>
-          {{brewery.address_1}} {{brewery.address_2}} {{brewery.city}}, {{brewery.district}} {{brewery.zipCode}}
-          <br />
-          {{brewery.type}}
+          <br/>
+          {{brewery.type}} <strong>|</strong> {{brewery.address_1}} {{brewery.address_2}} {{brewery.city}}, {{brewery.district}} {{brewery.zipCode}}
+          <br/>
           <p v-if="brewery.established">Established: {{brewery.established}}</p>
-          <br />
+          <br/>
           {{brewery.backgroundInfo}}
           <v-card-actions class="justify-center">
             <v-btn text @click="isHiddenBeer = !isHiddenBeer">View Beers</v-btn>
           </v-card-actions>
           <v-expand-transition>
-            <v-container v-show="isHiddenBeer">
+            <div>
               <v-card
-                class="accent mx-auto"
+                class="accent mx-auto ma-5"
                 v-for="beer in beers"
                 v-bind:key="beer.id"
-                max-width="95%"
                 hover
+                v-show="isHiddenBeer"
               >
                 <beer v-bind:beer="beer"></beer>
               </v-card>
-            </v-container>
+            </div>
           </v-expand-transition>
         </v-card-text>
       </v-expand-transition>
@@ -65,6 +65,7 @@ export default {
   },
   props: {
     brewery: {}
+    
   },
   created() {
     fetch(`${process.env.VUE_APP_REMOTE_API}/beers/${this.brewery.id}`, {
@@ -81,7 +82,9 @@ export default {
         this.beers = data;
       })
       .catch(err => console.error(err));
-  }
+  },
+
+ 
 };
 </script>
 
