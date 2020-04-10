@@ -7,22 +7,42 @@
       Home
         <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
       </v-btn>
-      <v-btn to ="/logout" v-if="user">
+      <!-- <span v-if="$auth.loading"> -->
+      <v-btn v-if="loggedIn" to="/logout" >
       Logout
         <!-- <router-link :to="{name: 'logout'}">Logout</router-link> -->
       </v-btn>
-      <v-btn to="/login" v-else>
+      <v-btn v-else to="/login" >
       Login
         <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
-      
+      <!-- </span> -->
     </v-app-bar>
     <router-view /> 
   </v-app>
 </template>
 
 <script>
-export default {};
+
+import auth from './auth';
+
+export default {
+  data() {
+            return {
+                loggedIn: Boolean,
+                user: Object
+                
+            }
+        },
+  methods: {
+            created(){
+              this.user = auth.getUser();
+              this.loggedIn = this.user;
+              
+            }
+        }
+
+};
 </script>
 
 <style>
