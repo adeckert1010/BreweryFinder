@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="accent">
-      <v-app-bar-title><router-link id ="nav-bar-title" :to="{name: 'home'}">Brewery Friend Finder</router-link></v-app-bar-title>
+      <v-toolbar-title><router-link id ="nav-bar-title" :to="{name: 'home'}">Brewery Friend Finder</router-link></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn v-if="getUser()">{{getUser().sub}}</v-btn>
       <v-btn to="/">
@@ -14,7 +14,7 @@
       Logout
         <!-- <router-link :to="{name: 'logout'}">Logout</router-link> -->
       </v-btn>
-      <v-btn v-if = "!getUser()" to="/login" >
+      <v-btn v-if ="!getUser()" to="/login" >
       Login
         <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
