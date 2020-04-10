@@ -1,8 +1,8 @@
 <template>
   <v-content class="beer">
-      <h3>{{beer.name}}</h3>
+      <v-card-title>{{beer.name}}</v-card-title>
       <p>{{beer.description}}</p>
-      <v-img :src="beer.imageLocation" :alt="beer.beer_name"></v-img>
+      <v-img :src="beer.imageLocation" :alt="beer.beer_name" class="beer_image" max-width="50%"></v-img>
       <p>ABV: {{beer.abv}}</p>
       <p>IBU: {{beer.ibu}}</p>
       <p>{{beer.type}}</p>
@@ -25,6 +25,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

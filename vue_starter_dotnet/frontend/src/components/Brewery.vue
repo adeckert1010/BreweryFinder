@@ -1,12 +1,12 @@
 <template>
-  <v-card class="mx-auto primary" max-width="75%" raised hover>
-    <v-container>
+  <v-container>
+    <v-card class="mx-auto primary" max-width="80%" hover>
       <v-img
         :lazy-src="brewery.imageLocation"
         :src="brewery.imageLocation"
         :alt="brewery.name"
         @click="isHidden = !isHidden"
-        class="rounded"
+        class="white--text"
       ></v-img>
       <v-card-title>{{brewery.name}}</v-card-title>
       <v-card-actions>
@@ -27,8 +27,8 @@
         </div>
       </v-expand-transition>
       <!-- <router-link>See Beers available</router-link> -->
-    </v-container>
-  </v-card>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
