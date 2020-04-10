@@ -1,6 +1,6 @@
 <template>
-  <v-content>
-    <v-card class="mx-auto primary" max-width="80%" hover>
+  <v-container fluid>
+    <v-card class="mx-auto primary" max-width="90%" hover>
       <v-img
         :lazy-src="brewery.imageLocation"
         :src="brewery.imageLocation"
@@ -20,6 +20,7 @@
       <v-expand-transition>
         <v-card-text v-show="isHidden">
           <v-divider></v-divider>
+          <br/>
           {{brewery.type}} <strong>|</strong> {{brewery.address_1}} {{brewery.address_2}} {{brewery.city}}, {{brewery.district}} {{brewery.zipCode}}
           <br/>
           <p v-if="brewery.established">Established: {{brewery.established}}</p>
@@ -29,24 +30,23 @@
             <v-btn text @click="isHiddenBeer = !isHiddenBeer">View Beers</v-btn>
           </v-card-actions>
           <v-expand-transition>
-            <v-container >
+            <div>
               <v-card
-                class="accent mx-auto"
+                class="accent mx-auto ma-5"
                 v-for="beer in beers"
                 v-bind:key="beer.id"
-                max-width="95%"
                 hover
                 v-show="isHiddenBeer"
               >
                 <beer v-bind:beer="beer"></beer>
               </v-card>
-            </v-container>
+            </div>
           </v-expand-transition>
         </v-card-text>
       </v-expand-transition>
       <!-- <router-link>See Beers available</router-link> -->
     </v-card>
-  </v-content>
+  </v-container>
 </template>
 
 <script>
