@@ -15,7 +15,7 @@
             sm="8"
             md="4"
           >
-          <v-card class="elevation-12 info">
+          <v-card class="elevation-12 accent">
             <v-toolbar
                 color="primary"
                 dark
