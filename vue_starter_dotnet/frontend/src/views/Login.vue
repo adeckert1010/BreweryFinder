@@ -74,10 +74,10 @@
       /> -->
       <v-card-actions>
       <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
-      <v-btn to="/register">Register</v-btn>
+      <v-btn class="primary" to="/register">Register</v-btn>
       <!-- <button type="submit">Sign in</button> -->
       <v-spacer />
-      <v-btn color="primary" type="submit">Login</v-btn>
+      <v-btn class="primary" type="submit">Login</v-btn>
       </v-card-actions>
     </v-form>
     </v-card-text>
