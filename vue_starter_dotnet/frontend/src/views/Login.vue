@@ -1,39 +1,27 @@
 <template>
-<v-content>
-      <v-container
-        class="fill-height secondary"
-        fluid
-        
-      >
-  <v-card-text id="login">
-    <v-row
-          align="center"
-          justify="center"
-        >
-        <v-col
-            cols="12"
-            sm="8"
-            md="4"
-          >
-          <v-card class="elevation-12 accent">
-            <v-toolbar
-                color="primary"
-                dark
-                flat
-              >
-          <v-toolbar-title>Please Sign In</v-toolbar-title>
-         </v-toolbar>
-         <v-card-text >
-    <v-form  @submit.prevent="login">
-      
-      <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
-        Invalid username and password!
-      </div>
-      <div class="alert alert-success" role="alert" v-if="this.$route.query.registration">
-        Thank you for registering, please sign in.
-      </div>
-      <!-- <label for="username" class="sr-only">Username</label> -->
-      <v-text-field
+  <v-content>
+    <v-container class="fill-height secondary" fluid>
+      <v-card-text id="login">
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="8" md="4">
+            <v-card class="elevation-12 accent">
+              <v-toolbar color="primary" dark flat>
+                <v-toolbar-title>Please Sign In</v-toolbar-title>
+              </v-toolbar>
+              <v-card-text>
+                <v-form @submit.prevent="login">
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    v-if="invalidCredentials"
+                  >Invalid username and password!</div>
+                  <div
+                    class="alert alert-success"
+                    role="alert"
+                    v-if="this.$route.query.registration"
+                  >Thank you for registering, please sign in.</div>
+                  <!-- <label for="username" class="sr-only">Username</label> -->
+                  <v-text-field
                     id="username"
                     label="Username"
                     name="username"
@@ -42,7 +30,7 @@
                     v-model="user.username"
                     required
                   />
-      <!-- <input
+                  <!-- <input
         type="text"
         id="username"
         class="form-control"
@@ -50,9 +38,9 @@
         v-model="user.username"
         required
         autofocus
-      /> -->
+                  />-->
 
-      <v-text-field
+                  <v-text-field
                     id="password"
                     label="Password"
                     name="password"
@@ -60,10 +48,10 @@
                     prepend-icon="mdi-textbox-password"
                     type="password"
                     v-model="user.password"
-        required
+                    required
                   />
 
-      <!-- <label for="password" class="sr-only">Password</label>
+                  <!-- <label for="password" class="sr-only">Password</label>
       <input
         type="password"
         id="password"
@@ -71,73 +59,71 @@
         placeholder="Password"
         v-model="user.password"
         required
-      /> -->
-      <v-card-actions>
-      <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
-      <v-btn class="primary" to="/register">Register</v-btn>
-      <!-- <button type="submit">Sign in</button> -->
-      <v-spacer />
-      <v-btn class="primary" type="submit">Login</v-btn>
-      </v-card-actions>
-    </v-form>
-    </v-card-text>
-    </v-card>
-    </v-col>
-     </v-row>
-  </v-card-text>
-  </v-container>
+                  />-->
+                  <v-card-actions>
+                    <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
+                    <v-btn class="primary" to="/register">Register</v-btn>
+                    <!-- <button type="submit">Sign in</button> -->
+                    <v-spacer />
+                    <v-btn class="primary" type="submit">Login</v-btn>
+                  </v-card-actions>
+                </v-form>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-container>
   </v-content>
- 
 </template>
 
 <script>
-import auth from '../auth';
+import auth from "../auth";
 
 export default {
-  name: 'login',
+  name: "login",
   components: {},
   data() {
     return {
       user: {
-        username: '',
-        password: '',
+        username: "",
+        password: ""
       },
-      invalidCredentials: false,
+      invalidCredentials: false
     };
   },
   methods: {
     login() {
       fetch(`${process.env.VUE_APP_REMOTE_API}/Account/login`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(this.user),
+        body: JSON.stringify(this.user)
       })
-        .then((response) => {
+        .then(response => {
           if (response.ok) {
             return response.text();
           } else {
             this.invalidCredentials = true;
           }
         })
-        .then((token) => {
+        .then(token => {
           if (token != undefined) {
             if (token.includes('"')) {
-              token = token.replace(/"/g, '');
+              token = token.replace(/"/g, "");
             }
             auth.saveToken(token);
             // this.$emit("authenticated", true);
-            this.$router.push('/');
+            this.$router.push("/");
           }
         })
-        .catch((err) => console.error(err));
-    },
+        .catch(err => console.error(err));
+    }
   }
 };
 </script>
 
 <style>
-
 </style>
