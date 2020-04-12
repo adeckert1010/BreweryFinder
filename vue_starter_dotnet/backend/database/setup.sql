@@ -300,6 +300,9 @@ INSERT INTO beer_location (beer_id, location_id) VALUES (6,3);
 INSERT INTO beer_location (beer_id, location_id) VALUES (7,3);
 INSERT INTO beer_location (beer_id, location_id) VALUES (8,1);
 
+INSERT INTO DemoDB.dbo.user_beer VALUES(1,2)
+
+
  ALTER TABLE user_beer 
  ADD FOREIGN KEY (id_user)
  REFERENCES users(id); 
