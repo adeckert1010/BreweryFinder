@@ -77,6 +77,71 @@ namespace SampleApi.DAL
         }
 
         /// <summary>
+        /// Lets user add a beer to favorites list
+        /// </summary>
+        /// <param name="beer"></param>
+        public void AddFavoriteBeer(User user, Beer beer)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO DemoDB.dbo.user_beer VALUES(@userId,beerId);", conn);
+                    cmd.Parameters.AddWithValue("@userId", user.Id);
+                    cmd.Parameters.AddWithValue("@beerId", beer.Id);
+
+                    cmd.ExecuteNonQuery();
+
+                    return;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Gets a list of a users favorite beers from the user_beer table and get the beer info from the beer table
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public IEnumerable<Beer> GetFavoriteBeers(int userId) {
+            
+            //get beerIDs from user_beer table and use that to go get the beer table data
+            IList<Beer> favoriteBeers = new List<Beer>();
+            
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(
+                        @"SELECT * 
+                        FROM user_beer JOIN beer_info 
+                        ON user_beer.beer_id = beer_info.beer_id 
+                        WHERE id_user = @userId", conn);
+                    cmd.Parameters.AddWithValue("@userId", userId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        favoriteBeers.Add(MapToBeer(reader));
+                    }
+                }
+
+                return favoriteBeers;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        /// <summary>
         /// Gets the user from the database.
         /// </summary>
         /// <param name="username"></param>
@@ -146,6 +211,30 @@ namespace SampleApi.DAL
                 Salt = Convert.ToString(reader["salt"]),
                 Role = Convert.ToString(reader["role"])
             };
+        }
+
+
+        //this should probably be refactored to use the one from BeerSqlDAO because it is copypasted
+        /// <summary>
+        /// convert an entry from the sql reader to a beer
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        private Beer MapToBeer(SqlDataReader reader)
+        {
+
+            var beer = new Beer
+            {
+                Id = Convert.ToInt32(reader["beer_id"]),
+                Name = Convert.ToString(reader["beer_name"]),
+                ImageLocation = Convert.ToString(reader["beer_image"]),
+                Type = Convert.ToString(reader["beer_type"]),
+                Description = Convert.ToString(reader["beer_description"]),
+                ABV = Convert.ToInt32(reader["abv"]),
+                IBU = Convert.ToInt32(reader["ibu"])
+            };
+
+            return beer;
         }
     }
 }

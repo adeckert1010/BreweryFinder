@@ -10,16 +10,19 @@
               </v-toolbar>
               <v-card-text>
                 <v-form @submit.prevent="login">
+                  
                   <div
                     class="alert alert-danger"
                     role="alert"
                     v-if="invalidCredentials"
                   >Invalid username and password!</div>
+                  
                   <div
                     class="alert alert-success"
                     role="alert"
                     v-if="this.$route.query.registration"
                   >Thank you for registering, please sign in.</div>
+                  
                   <!-- <label for="username" class="sr-only">Username</label> -->
                   <v-text-field
                     id="username"
@@ -30,6 +33,7 @@
                     v-model="user.username"
                     required
                   />
+                 
                   <!-- <input
         type="text"
         id="username"

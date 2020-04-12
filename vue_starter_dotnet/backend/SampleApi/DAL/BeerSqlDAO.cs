@@ -119,6 +119,11 @@ namespace SampleApi.DAL
             }
         }
 
+        /// <summary>
+        /// convert an entry from the sql reader to a beer
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         private Beer MapToBeer(SqlDataReader reader)
         {
 

@@ -15,9 +15,9 @@ namespace SampleApi.Controllers
     {
         private IBeerDAO beerDAO;
 
-        public BeersController(IBeerDAO dao)
+        public BeersController(IBeerDAO beerDao)
         {
-            this.beerDAO = dao;
+            this.beerDAO = beerDao;
         }
 
         // GET: api/Beers

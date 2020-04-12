@@ -35,5 +35,18 @@ namespace SampleApi.DAL
         /// </summary>
         /// <param name="user"></param>
         void DeleteUser(User user);
+
+        /// <summary>
+        /// Lets a user add a beer to favorites list
+        /// </summary>
+        /// <param name="beer">The beer to be added to favorites</param>
+        void AddFavoriteBeer(User user, Beer beer);
+
+        /// <summary>
+        /// Gets a list of a user's favorite beers
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        IEnumerable<Beer> GetFavoriteBeers(int UserId);
     }
 }
