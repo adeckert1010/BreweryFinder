@@ -22,11 +22,20 @@ namespace SampleApi.Controllers
         }
 
         // GET: /<controller>/
-        [Route("favoritebeers/{id}")]
+        [Route("favoritebeers/{userId}")]
         [HttpGet("{userId}")]
         public IEnumerable<Beer> GetFavorites(int userId) 
         {
             return userDao.GetFavoriteBeers(userId);
+        }
+
+        //This needs to use the user's token to do stuff. How Do?
+        // PUT: api/Beers/5
+        [HttpPut("{beer-id}")]
+        public void AddFavBeer(int id, [FromBody] int beerId)
+        {
+            //Get User ID?
+
         }
     }
 }

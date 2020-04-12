@@ -79,8 +79,9 @@ namespace SampleApi.DAL
         /// <summary>
         /// Lets user add a beer to favorites list
         /// </summary>
-        /// <param name="beer"></param>
-        public void AddFavoriteBeer(User user, Beer beer)
+        /// <param name="userId"></param>
+        /// <param name="beerId"></param>
+        public void AddFavoriteBeer(int userId, int beerId)
         {
             try
             {
@@ -88,8 +89,8 @@ namespace SampleApi.DAL
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("INSERT INTO DemoDB.dbo.user_beer VALUES(@userId,beerId);", conn);
-                    cmd.Parameters.AddWithValue("@userId", user.Id);
-                    cmd.Parameters.AddWithValue("@beerId", beer.Id);
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    cmd.Parameters.AddWithValue("@beerId", beerId);
 
                     cmd.ExecuteNonQuery();
 

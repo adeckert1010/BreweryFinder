@@ -40,7 +40,7 @@ namespace SampleApi.DAL
         /// Lets a user add a beer to favorites list
         /// </summary>
         /// <param name="beer">The beer to be added to favorites</param>
-        void AddFavoriteBeer(User user, Beer beer);
+        void AddFavoriteBeer(int userId, int beerId);
 
         /// <summary>
         /// Gets a list of a user's favorite beers
