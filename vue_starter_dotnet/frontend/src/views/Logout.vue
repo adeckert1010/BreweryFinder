@@ -17,7 +17,7 @@ export default {
   methods: {
     changeStatus(){
       this.isSuccessful = true;
-      alert("You have successfully logged out!");
+      //alert("You have successfully logged out!");
       this.$router.push({name: 'home'});
       
     }
