@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="accent">
+    <v-app-bar app color="primary">
       <v-toolbar-title>
         <router-link id="nav-bar-title" :to="{name: 'home'}">Brewery Friend Finder</router-link>
       </v-toolbar-title>
