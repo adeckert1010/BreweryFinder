@@ -2,7 +2,7 @@
 <v-container fluid>
   <v-row dense justify="center">
     <v-col sm="12" md="9" lg="9" justify="center">
-      <v-text-field id="search" name="search" v-on:keyup="filter" label="Search Breweries"></v-text-field>
+      <v-text-field id="search" name="search" v-on:keyup="filter" label="Search Breweries" color="white"></v-text-field>
     </v-col>
   </v-row>
 </v-container>
