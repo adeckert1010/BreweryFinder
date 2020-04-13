@@ -101,11 +101,6 @@ body {
   border-radius: 5px;
 } */
 
-.info {
-}
-
-.beer-list {
-}
 #nav-bar-title {
   text-decoration: none;
   color: #e9c46a;
