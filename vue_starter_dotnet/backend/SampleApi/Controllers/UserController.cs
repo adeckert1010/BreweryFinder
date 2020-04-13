@@ -31,8 +31,11 @@ namespace SampleApi.Controllers
 
         //This needs to use the user's token to do stuff. How Do?
         // PUT: api/Beers/5
-        [HttpPut("{beer-id}")]
-        public void AddFavBeer(int id, [FromBody] int beerId)
+
+        // or [HttpPut("{beer-id}")]? pretty sure this is a post situation
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public void AddFavBeer(int id, [FromBody] string value)
         {
             //Get User ID?
 

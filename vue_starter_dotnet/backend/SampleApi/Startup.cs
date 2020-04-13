@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -78,6 +79,29 @@ namespace SampleApi
                     };
                 });
 
+            /*Begin stuff added to configure session*/
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This sets if the user needs to "consent" to
+                // allow cookies to be saved on their machine.
+                // For DEV purposes, set it to false.
+                options.CheckConsentNeeded = context => false;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            // Indicates Session should be saved "in memory"
+            services.AddDistributedMemoryCache();
+
+            // Sets the options on Session
+            services.AddSession(options =>
+            {
+                // Sets session expiration to 20 minutes
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.HttpOnly = true;
+            });
+            /*End stuff added to configure session*/
+
+
             // Dependency Injection configuration
             services.AddSingleton<ITokenGenerator>(tk => new JwtGenerator(Configuration["JwtSecret"]));
             services.AddSingleton<IPasswordHasher>(ph => new PasswordHasher());
@@ -106,6 +130,8 @@ namespace SampleApi
                 };
             });
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         /// <summary>
@@ -139,6 +165,17 @@ namespace SampleApi
             app.UseAuthentication();
 
             app.UseHttpsRedirection();
+
+            /*Begin stuff added for session*/
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
+
+            // Tells our application to use session
+            app.UseSession();
+
+            //app.UseHttpContextItemsMiddleware();//error does not contain definintion and can't find one but it is from the reading for session stuff
+            /*End stuff added for session*/
+
             app.UseMvc();
         }
     }
