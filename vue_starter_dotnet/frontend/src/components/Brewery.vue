@@ -42,6 +42,7 @@
                 v-show="isHiddenBeer"
               >
                 <beer v-bind:beer="beer"></beer>
+                <router-link :to="{name: 'singleBeer', params: {id: beer.id}}">View beer info</router-link>
               </v-card>
             </div>
           </v-expand-transition>
