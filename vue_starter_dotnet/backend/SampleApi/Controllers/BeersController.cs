@@ -42,7 +42,7 @@ namespace SampleApi.Controllers
             return beerDAO.GetBeer(id);
         }
 
-        [Route("api/beers/{name}")]
+        [Route("api/beers/search/{name}")]
         [HttpGet("{name}")]
         public IEnumerable<Beer> GetBeersByName(string query)
         {

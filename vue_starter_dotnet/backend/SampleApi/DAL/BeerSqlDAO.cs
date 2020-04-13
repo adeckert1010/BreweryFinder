@@ -92,8 +92,8 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM beer_info WHERE beer_name LIKE '%@query%'", conn);
-                    cmd.Parameters.AddWithValue("@query", query);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM beer_info WHERE beer_name LIKE @query", conn);
+                    cmd.Parameters.AddWithValue("@query", "%" + query + "%");
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
