@@ -6,21 +6,21 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn class="pa-1 ma-1 info" v-if="getUser()">{{getUser().sub}}</v-btn>
-      <v-btn class="pa-1 ma-1 info" to="/">
+      <v-btn class="pa-1 ma-1 info removePressed" to="/">
         Home
         <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
       </v-btn>
       <!-- <span v-if="$auth.loading"> -->
       <!-- <v-btn @authenticated="user=getUser"  v-if="user" to="/logout" > -->
-      <v-btn class="pa-1 ma-1 accent" v-if="getUser()" to="/logout">
+      <v-btn class="pa-1 ma-1 accent removePressed" v-if="getUser()" to="/logout">
         Logout
         <!-- <router-link :to="{name: 'logout'}">Logout</router-link> -->
       </v-btn>
-      <v-btn class="pa-1 ma-1 info" v-if="!getUser()" to="/login">
+      <v-btn class="pa-1 ma-1 info removePressed" v-if="!getUser()" to="/login">
         Login
         <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
-      <v-btn class="pa-1 ma-1 info" v-if="!getUser()" to="/register">
+      <v-btn class="pa-1 ma-1 info removePressed" v-if="!getUser()" to="/register">
         Register
         <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
@@ -100,6 +100,9 @@ body {
   width: 50%;
   border-radius: 5px;
 } */
+.removePressed:focus::before {
+  opacity: 0 !important;
+}
 
 #nav-bar-title {
   text-decoration: none;
