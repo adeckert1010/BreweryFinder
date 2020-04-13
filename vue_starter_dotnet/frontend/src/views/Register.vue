@@ -1,7 +1,7 @@
 <template>
 <v-content>
     <v-container class="fill-height secondary" fluid>
-      <v-card-text id="login">
+      <v-card-text id="register">
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
             <v-card class="elevation-12 accent">
@@ -9,7 +9,7 @@
                 <v-toolbar-title>Create Account</v-toolbar-title>
               </v-toolbar>
               <v-card-text>
-                <v-form @submit.prevent="login">
+                <v-form @submit.prevent="register">
                   
     
      
