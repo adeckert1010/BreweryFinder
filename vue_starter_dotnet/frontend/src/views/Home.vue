@@ -1,5 +1,6 @@
 <template>
   <v-content class="home secondary">
+    <search-beers></search-beers>
     <search-brewery v-on:filter="handleFilter" ></search-brewery>
     <v-container fluid>
     <v-row dense justify="center">
@@ -19,10 +20,12 @@
 <script>
 import Brewery from "@/components/Brewery.vue";
 import SearchBrewery from "@/components/SearchBrewery.vue";
+import SearchBeers from "@/components/SearchBeers.vue";
 export default {
   components: {
     Brewery,
-    SearchBrewery
+    SearchBrewery,
+    SearchBeers
   },
   name: "home",
   data() {

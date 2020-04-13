@@ -6,6 +6,7 @@ import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import Logout from './views/Logout.vue'
 import SingleBeer from './views/SingleBeer.vue'
+import SearchResults from './views/SearchResults.vue'
 
 
 Vue.use(Router)
@@ -59,6 +60,14 @@ const router = new Router({
       path: "/beer/:id",
       name: "singleBeer",
       component: SingleBeer,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/searchresults/:search",
+      name: "searchresults",
+      component: SearchResults,
       meta: {
         requiresAuth: false
       }
