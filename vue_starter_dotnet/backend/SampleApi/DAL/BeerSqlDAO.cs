@@ -84,6 +84,33 @@ namespace SampleApi.DAL
             }
         }
 
+        public IList<Beer> GetBeersByName(string query)
+        {
+            IList<Beer> beers = new List<Beer>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM beer_info WHERE beer_name LIKE '%@query%'", conn);
+                    cmd.Parameters.AddWithValue("@query", query);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        beers.Add(MapToBeer(reader));
+                    }
+                }
+
+                return beers;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         public bool UpdateBeer()
         {
             throw new NotImplementedException();

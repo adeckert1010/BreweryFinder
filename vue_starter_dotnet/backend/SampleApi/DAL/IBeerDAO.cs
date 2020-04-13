@@ -23,6 +23,8 @@ namespace SampleApi.DAL
         IList<Beer> GetBeers();
 
         IList<Beer> GetBeersAtBrewery(int breweryId);
+
+        IList<Beer> GetBeersByName(string query);
         
         /// <summary>
         /// Gets one Beer

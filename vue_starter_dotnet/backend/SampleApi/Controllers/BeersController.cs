@@ -42,6 +42,13 @@ namespace SampleApi.Controllers
             return beerDAO.GetBeer(id);
         }
 
+        [Route("api/beers/{name}")]
+        [HttpGet("{name}")]
+        public IEnumerable<Beer> GetBeersByName(string query)
+        {
+            return beerDAO.GetBeersByName(query);
+        }
+
         // POST: api/Beers
         [HttpPost]
         public void Post([FromBody] string value)
