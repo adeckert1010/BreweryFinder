@@ -2,25 +2,25 @@
   <v-app>
     <v-app-bar app color="primary">
       <v-toolbar-title>
-        <router-link id="nav-bar-title" :to="{name: 'home'}">Brewery Friend Finder</router-link>
+        <router-link id="nav-bar-title" :to="{name: 'home'}"> <v-icon class="pa-2 ma-2" color="info">mdi-glass-mug-variant</v-icon>Brewery Friend Finder</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn v-if="getUser()">{{getUser().sub}}</v-btn>
-      <v-btn to="/">
+      <v-btn class="pa-1 ma-1" v-if="getUser()">{{getUser().sub}}</v-btn>
+      <v-btn class="pa-1 ma-1" to="/">
         Home
         <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
       </v-btn>
       <!-- <span v-if="$auth.loading"> -->
       <!-- <v-btn @authenticated="user=getUser"  v-if="user" to="/logout" > -->
-      <v-btn v-if="getUser()" to="/logout">
+      <v-btn class="pa-1 ma-1" v-if="getUser()" to="/logout">
         Logout
         <!-- <router-link :to="{name: 'logout'}">Logout</router-link> -->
       </v-btn>
-      <v-btn v-if="!getUser()" to="/login">
+      <v-btn class="pa-1 ma-1" v-if="!getUser()" to="/login">
         Login
         <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
-      <v-btn v-if="!getUser()" to="/register">
+      <v-btn class="pa-1 ma-1" v-if="!getUser()" to="/register">
         Register
         <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
