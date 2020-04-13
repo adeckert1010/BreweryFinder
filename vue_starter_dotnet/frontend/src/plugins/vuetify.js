@@ -20,11 +20,11 @@ export default new Vuetify({
           accent: '#F4A261'
         },
         dark: {
-          primary: "#ffcc50",
+          primary: "#2A9D8F",
           error: "#ff8888",
           success: "#45a5ae",
-
-          secondary: '#b0bec5',
+          info: "#E9C46A",
+          secondary: '#264653',
           accent: '#F4A261',
 
         },

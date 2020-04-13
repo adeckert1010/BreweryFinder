@@ -1,7 +1,10 @@
 <template>
-  <v-container fluid>
-    <v-card dark class="mx-auto primary" max-width="90%" hover>
+
+  <v-col md="4" lg="3" sm="9" xs="12">
+    <v-card dark class="mx-auto primary" hover>
       <v-img
+        height="500px"
+        width="750px"
         :lazy-src="brewery.imageLocation"
         :src="brewery.imageLocation"
         :alt="brewery.name"
@@ -46,7 +49,7 @@
       </v-expand-transition>
       <!-- <router-link>See Beers available</router-link> -->
     </v-card>
-  </v-container>
+  </v-col>
 </template>
 
 <script>

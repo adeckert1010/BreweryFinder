@@ -1,13 +1,18 @@
 <template>
   <v-content class="home secondary">
     <search-brewery v-on:filter="handleFilter" ></search-brewery>
+    <v-container fluid>
+    <v-row dense justify="center">
     <brewery
-      class="brewery"
+      class="brewery ma-5"
       :key="brewery.id"
       v-for="brewery in filteredBreweries"
       v-bind:brewery="brewery"
       v-bind:search="search"
+      
     ></brewery>
+    </v-row>
+    </v-container>
   </v-content>
 </template>
 

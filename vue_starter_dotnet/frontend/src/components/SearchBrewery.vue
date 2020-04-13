@@ -1,5 +1,11 @@
 <template>
-  <input type="text" id="search" name="search" v-on:keyup="filter" placeholder="Search Breweries" />
+<v-container fluid>
+  <v-row dense justify="center">
+    <v-col sm="12" md="9" lg="9" justify="center">
+      <v-text-field id="search" name="search" v-on:keyup="filter" label="Search Breweries"></v-text-field>
+    </v-col>
+  </v-row>
+</v-container>
 </template>
 
 <script>
