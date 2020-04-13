@@ -65,9 +65,10 @@ const router = new Router({
       }
     },
     {
-      path: "/searchresults/:search",
+      path: "/searchresults/:searchbeer",
       name: "searchresults",
       component: SearchResults,
+      //props: {beers: []},
       meta: {
         requiresAuth: false
       }

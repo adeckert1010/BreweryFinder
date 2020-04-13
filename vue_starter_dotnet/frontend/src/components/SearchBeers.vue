@@ -3,7 +3,7 @@
   <v-row dense justify="center">
     <v-col sm="12" md="9" lg="9" justify="center">
 <v-form @submit.prevent="filterBeers">
-    <v-text-field :v-model="searchBeer" type="text" id="search" name="search"  placeholder="Search For A Beer"></v-text-field>
+    <v-text-field :v-model="searchBeer" type="text" id="searchbeer" name="searchbeer"  placeholder="Search For A Beer"></v-text-field>
     <v-btn class="primary" type="submit">Search</v-btn>
 </v-form>
 </v-col>
@@ -16,16 +16,15 @@ export default {
   data() {
     return {
       apiURL: "",
-      searchBeer: ""
+      searchBeer: "",
+      beers: []
       
     };
   },
   methods: {
 filterBeers() {
     const query = this.searchBeer;
-    this.$router.push({name: 'searchresults', params: {search: query}});
-
-    fetch(`${process.env.VUE_APP_REMOTE_API}/beers/`, {
+    fetch(`${process.env.VUE_APP_REMOTE_API}/beers/search/${query}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -36,8 +35,9 @@ filterBeers() {
         return response.json();
       })
       .then(data => {
-        this.singleBeer = data;
+        this.beers = data;
       })
+      .then(this.$router.push({name: 'searchresults'}))
       .catch(err => console.error(err));
     
     }
