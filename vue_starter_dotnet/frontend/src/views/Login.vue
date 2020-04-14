@@ -65,7 +65,7 @@
         required
                   />-->
                   <v-card-actions>
-                    <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
+                    <router-link :to="{ name: 'register' }">Need an account?</router-link>
                     <!-- <v-btn class="primary" to="/register">Register</v-btn> -->
                     <!-- <button type="submit">Sign in</button> -->
                     <v-spacer />

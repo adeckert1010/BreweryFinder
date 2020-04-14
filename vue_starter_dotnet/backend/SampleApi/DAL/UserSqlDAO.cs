@@ -165,7 +165,8 @@ namespace SampleApi.DAL
                         user = MapRowToUser(reader);
                     }
 
-
+                    //now get the favorite beers
+                    
                 }
 
                 return user;
