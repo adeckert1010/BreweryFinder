@@ -35,5 +35,10 @@ namespace SampleApi.Models
         /// The user's role.
         /// </summary>
         public string Role { get; set; }
+
+        /// <summary>
+        /// The user's favorite beers.
+        /// </summary>
+        public IList<Beer> FavoriteBeers { get; set; }
     }
 }

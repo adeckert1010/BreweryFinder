@@ -41,7 +41,7 @@ namespace SampleApi.Controllers
         public IActionResult AddFavBeer(int beerId)
         {
             // Assume the user is not authorized
-            IActionResult result = Unauthorized();
+            IActionResult result = Unauthorized();//Can we say a message like 'log in to favorite'
 
             //Get User
             User user = userDao.GetUser(User.Identity.Name);

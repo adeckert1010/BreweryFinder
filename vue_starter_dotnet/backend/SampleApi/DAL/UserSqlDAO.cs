@@ -164,6 +164,8 @@ namespace SampleApi.DAL
                     {
                         user = MapRowToUser(reader);
                     }
+
+
                 }
 
                 return user;
