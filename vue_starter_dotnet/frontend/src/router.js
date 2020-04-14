@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import auth from './auth'
-import Home from './views/Home.vue'
+import Breweries from './views/Breweries.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import Logout from './views/Logout.vue'
 import SingleBeer from './views/SingleBeer.vue'
 import SearchResults from './views/SearchResults.vue'
+import Home from './views/Home.vue'
 
 
 Vue.use(Router)
@@ -24,6 +25,14 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/breweries',
+      name: 'breweries',
+      component: Breweries,
+      meta: {
+        requiresAuth: false
+      }
+    },
     {
       path: '/',
       name: 'home',
