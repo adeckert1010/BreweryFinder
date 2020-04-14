@@ -92,7 +92,10 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM beer_info WHERE beer_name LIKE @query", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT* FROM brewery
+                                                    JOIN beer_location ON beer_location.location_id = brewery.location_id
+                                                    LEFT JOIN beer_info ON beer_info.beer_id = beer_location.beer_id
+                                                    WHERE brewery.location_name LIKE @query OR beer_info.beer_name LIKE @query OR beer_info.beer_type LIKE @query", conn);
                     cmd.Parameters.AddWithValue("@query", "%" + query + "%");
 
                     SqlDataReader reader = cmd.ExecuteReader();

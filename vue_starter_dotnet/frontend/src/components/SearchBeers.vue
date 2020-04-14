@@ -3,7 +3,7 @@
   <v-row dense justify="center">
     <v-col sm="12" md="9" lg="9" justify="center">
 <v-form @submit.prevent="filterBeers">
-    <v-text-field :v-model="searchBeer" type="text" id="searchbeer" name="searchbeer"  placeholder="Search For A Beer"></v-text-field>
+    <v-text-field :v-model="searchBeer" type="text" id="searchbeer" name="searchbeer"  label="Search For A Beer" color="white"></v-text-field>
     <v-btn class="primary" type="submit">Search</v-btn>
 </v-form>
 </v-col>
