@@ -21,25 +21,14 @@ export default {
       
     };
   },
+
+
   methods: {
 filterBeers() {
-    const query = this.searchBeer;
-    fetch(`${process.env.VUE_APP_REMOTE_API}/beers/search/${query}`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.beers = data;
-      })
-      .then(this.$router.push({name: 'searchresults'}))
-      .catch(err => console.error(err));
-    
+       this.$router.push({
+         name: 'searchresults', 
+         params:{search: document.getElementById("searchbeer").value}
+        })
     }
   }
 };

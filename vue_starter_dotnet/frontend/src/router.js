@@ -65,14 +65,14 @@ const router = new Router({
       }
     },
     {
-      path: "/searchresults/:searchbeer",
+      path: "/searchresults/:search",
       name: "searchresults",
       component: SearchResults,
       //props: {beers: []},
       meta: {
         requiresAuth: false
       }
-    },
+    }
     
   ]
 })
