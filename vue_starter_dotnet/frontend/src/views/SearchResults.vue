@@ -1,6 +1,9 @@
 <template>
   <v-container fluid>
+    <v-content v-if="beers.length == 0">No beers matched your search :(</v-content>
+    <v-row dense>
     <beer v-for="beer in beers" v-bind:beer='beer' v-bind:key='beer.id'/>
+    </v-row>
   </v-container>
 </template>
 
