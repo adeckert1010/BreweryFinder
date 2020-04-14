@@ -76,10 +76,10 @@
                     required
                   />
 <v-card-actions>
-      <!-- <router-link :to="{ name: 'login' }">
+      <router-link :to="{ name: 'login' }">
         Have an account?
-      </router-link> -->
-      <v-btn class="primary" to="/login">Back to Login</v-btn>
+      </router-link>
+      <!-- <v-btn class="primary" to="/login">Back to Login</v-btn> -->
 
       <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account

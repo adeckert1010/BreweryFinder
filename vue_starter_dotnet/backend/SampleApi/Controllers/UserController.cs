@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SampleApi.DAL;
 using SampleApi.Models;
@@ -29,15 +30,33 @@ namespace SampleApi.Controllers
             return userDao.GetFavoriteBeers(userId);
         }
 
-        //This needs to use the user's token to do stuff. How Do?
-        // PUT: api/Beers/5
-
-        // or [HttpPut("{beer-id}")]? pretty sure this is a post situation
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public void AddFavBeer(int id, [FromBody] string value)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="beerId"></param>
+        /// <returns></returns>
+        [HttpPost("addfavbeer")]
+        //[ValidateAntiForgeryToken]//from reading
+        [Authorize]//like ValuesController.cs
+        public IActionResult AddFavBeer(int beerId)
         {
-            //Get User ID?
+            // Assume the user is not authorized
+            IActionResult result = Unauthorized();//Can we say a message like 'log in to favorite'
+
+            //Get User
+            User user = userDao.GetUser(User.Identity.Name);
+
+            if (user != null)
+            {
+                // add the favorite beer/user combo to the databse
+                userDao.AddFavoriteBeer(user.Id, beerId);
+
+                // Switch to 200 OK
+                result = Ok();
+            }
+
+
+            return result;
 
         }
     }

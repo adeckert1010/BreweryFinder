@@ -1,7 +1,11 @@
 <template>
-<v-container fluid class="singleBeer">
-<beer :beer = singleBeer></beer>
-</v-container>
+<v-content class="primary" dark flat>
+
+  
+<beer :beer = singleBeer ></beer>
+  
+
+</v-content>
 </template>
 
 <script>
