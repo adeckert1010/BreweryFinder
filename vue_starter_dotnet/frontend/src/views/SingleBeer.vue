@@ -1,7 +1,5 @@
 <template>
-<v-content class="primary" dark flat>
-
-  
+<v-content class="secondary" light flat>
 <beer :beer = singleBeer ></beer>
   
 
