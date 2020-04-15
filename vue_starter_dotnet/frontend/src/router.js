@@ -8,6 +8,7 @@ import Logout from './views/Logout.vue'
 import SingleBeer from './views/SingleBeer.vue'
 import SearchResults from './views/SearchResults.vue'
 import Home from './views/Home.vue'
+import SingleBrewery from './views/SingleBrewery.vue'
 
 
 Vue.use(Router)

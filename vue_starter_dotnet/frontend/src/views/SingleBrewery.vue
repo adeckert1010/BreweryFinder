@@ -11,14 +11,14 @@
 import Beer from '@/components/Brewery.vue'
 export default {
   components: {
-    Brewery
+    Beer
   },
   name: "singleBrewery",
   props: {
       singleBrewery: {}
     },
     created() {
-    fetch(`${process.env.VUE_APP_REMOTE_API}/beer/${this.$route.params.id}`, {
+    fetch(`${process.env.VUE_APP_REMOTE_API}/brewery/${this.$route.params.id}`, {
       method: "GET",
       headers: {
         Accept: "application/json",

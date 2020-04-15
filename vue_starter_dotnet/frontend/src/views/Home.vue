@@ -1,10 +1,16 @@
 <template>
   <v-content class="home secondary">
-    <v-carousel>
-      <v-carousel-item v-for="(image, i) in images" :key="i">
-        <v-img :src="image"></v-img>
+    <v-container>
+    <v-carousel continuous cycle dark interval="4000" show-arrows show-arrows-on-hover touch>
+      <v-carousel-item v-for="(image, i) in images.splice(0,3)" :key="i">
+        <v-img 
+        :src="image"
+        height="500px"
+        position="center"
+        ></v-img>
       </v-carousel-item>
     </v-carousel>
+    </v-container>
     <search-beers></search-beers>
   </v-content>
 </template>
