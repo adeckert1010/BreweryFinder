@@ -1,8 +1,9 @@
 <template>
 <v-content class="secondary" light flat>
+  <v-container class="fill-height secondary" fluid>
 <beer :beer = singleBeer ></beer>
   
-
+  </v-container>
 </v-content>
 </template>
 

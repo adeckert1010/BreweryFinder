@@ -6,6 +6,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn class="pa-1 ma-1 info" v-if="getUser()">{{getUser().sub}}</v-btn>
+      
       <v-btn class="pa-1 ma-1 info removePressed" to="/">
         Home
         <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
@@ -25,6 +26,7 @@
         Register
         <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
+      
       <!-- </span> -->
     </v-app-bar>
     <router-view />
@@ -39,6 +41,7 @@ export default {
     return {
       // loggedIn: Boolean,
       //user: this.getUser()
+     
     };
   },
   methods: {

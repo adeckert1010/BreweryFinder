@@ -43,7 +43,7 @@ namespace SampleApi.Controllers
             // Assume the user is not authorized
             IActionResult result = Unauthorized();//Can we say a message like 'log in to favorite'
 
-            //Get User
+            //Get User for ID to search the user/beer table
             User user = userDao.GetUser(User.Identity.Name);
 
             if (user != null)
