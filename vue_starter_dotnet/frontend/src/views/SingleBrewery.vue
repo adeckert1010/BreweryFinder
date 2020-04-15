@@ -15,7 +15,9 @@ export default {
   name: "singleBrewery",
   data() {
     return {
-      brewery: {}
+      brewery: {
+        id: this.$route.params.id
+      }
     }
   },
     created() {

@@ -61,17 +61,31 @@ export default {
     return {
       isHidden: false,
       beers: [],
-      isHiddenBeer: false
+      isHiddenBeer: false,
+  //     brewery: {
+  //         "id": '',
+  //         "name":'',
+  // "address_1": '',
+  // "address_2": "",
+  // "city": "",
+  // "district": "",
+  // "zipCode": "",
+  // "imageLocation": "",
+  // "type": "",
+  // "established": null,
+  // "backgroundInfo": ""
+  //     }
     };
   },
   components: {
     Beer
   },
   props: {
-    brewery: {}
+    brewery: Object
     
   },
-  mounted() {
+  created() {
+
     fetch(`${process.env.VUE_APP_REMOTE_API}/beers/${this.brewery.id}`, {
       method: "GET",
       headers: {
