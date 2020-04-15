@@ -1,8 +1,8 @@
 <template>
 <v-content class="secondary" light flat>
-  <v-container class="fill-height secondary" fluid>
-    <brewery :brewery="brewery"></brewery>
-  </v-container>
+  <v-row dense justify-md="center">
+    <brewery :brewery="brewery" :isSingleBrewery="true"></brewery>
+  </v-row>
 </v-content>
 </template>
 
@@ -39,3 +39,6 @@ export default {
 }
 
 </script>
+<style scoped>
+
+</style>

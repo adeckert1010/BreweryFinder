@@ -85,7 +85,7 @@ VALUES
 --location 1
 INSERT INTO brewery
 	(location_name,bar_brewery_brewpub,image_address,background_info,address_line1,city,district,zipcode)
-VALUES ('Taft', 'Brewpub', 'https://cdn.citybeat.com/files/base/scomm/cb/image/2016/06/960w/eats_tafts-ale-house_photo-jesse-fox.jpg','This is a brewery AND a pub', '1429 Race Street', 'Cincinnati', 'OH', '45202' );
+VALUES ('Taft''s Ale House', 'Brewpub', 'https://cdn.citybeat.com/files/base/scomm/cb/image/2016/06/960w/eats_tafts-ale-house_photo-jesse-fox.jpg','This is a brewery AND a pub', '1429 Race Street', 'Cincinnati', 'OH', '45202' );
 
 --location 2
 INSERT INTO brewery
