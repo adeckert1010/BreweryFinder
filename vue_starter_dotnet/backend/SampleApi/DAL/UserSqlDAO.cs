@@ -88,10 +88,37 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO DemoDB.dbo.user_beer VALUES(@userId,beerId);", conn);
-                    cmd.Parameters.AddWithValue("@userId", userId);
-                    cmd.Parameters.AddWithValue("@beerId", beerId);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO DemoDB.dbo.user_beer VALUES(@id_user, @beer_id);", conn); //changed inside values to match their sql table column names and added @ before 2nd value
+                    //is DemoDB.dbo. needed in the above query?
+                    cmd.Parameters.AddWithValue("@id_user", userId); // changed from @userId to match databae
+                    cmd.Parameters.AddWithValue("@beer_id", beerId); // changed from @beerId to match database
 
+                    cmd.ExecuteNonQuery();
+
+                    return;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Removing favorite beers from
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="beerId"></param>
+        public void RemoveFavoriteBeer(int userId, int beerId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("DELETE FROM user_beer WHERE id_user = @id_user AND beer_id = @beer_id;", conn);
+                    cmd.Parameters.AddWithValue("@id_user", userId);
+                    cmd.Parameters.AddWithValue("@beer_id", beerId);
                     cmd.ExecuteNonQuery();
 
                     return;
