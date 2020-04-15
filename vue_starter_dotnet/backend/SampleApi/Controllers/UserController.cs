@@ -35,10 +35,11 @@ namespace SampleApi.Controllers
         /// </summary>
         /// <param name="beerId"></param>
         /// <returns></returns>
-        [HttpPost("addfavbeer")]
+        [Route("addfavbeer")]
+        [HttpPost]
         //[ValidateAntiForgeryToken]//from reading
         [Authorize]//like ValuesController.cs
-        public IActionResult AddFavBeer(int beerId)
+        public IActionResult AddFavBeer([FromBody] int beerId)
         {
             // Assume the user is not authorized
             IActionResult result = Unauthorized();//Can we say a message like 'log in to favorite'

@@ -29,7 +29,7 @@
       
       <!-- </span> -->
     </v-app-bar>
-    <router-view />
+    <router-view v-on:toggle-favorite-beer="toggleFavoriteBeer"/>
   </v-app>
 </template>
 
@@ -41,7 +41,7 @@ export default {
     return {
       // loggedIn: Boolean,
       //user: this.getUser()
-     
+      favoriteBeersList: []
     };
   },
   methods: {
@@ -49,6 +49,22 @@ export default {
       let newUser = auth.getUser();
       console.log(newUser);
       return auth.getUser();
+    },
+    toggleFavoriteBeer(beerId){
+      if(this.favoriteBeersList.includes(beerId)){
+        this.favoriteBeersList=this.favoriteBeersList.filter(id=> id!=beerId);
+
+        fetch(`${process.env.VUE_APP_REMOTE_API}/addfavbeer`, {
+      method: "POST",
+      body: JSON.stringify(beerId),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+      })
+      }
+      else
+      {this.favoriteBeersList.push(beerId);}
     }
   },
   created() {

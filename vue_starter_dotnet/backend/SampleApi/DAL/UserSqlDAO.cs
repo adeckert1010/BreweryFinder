@@ -88,7 +88,7 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO DemoDB.dbo.user_beer VALUES(@id_user, @beer_id);", conn); //changed inside values to match their sql table column names and added @ before 2nd value
+                    SqlCommand cmd = new SqlCommand("INSERT INTO user_beer VALUES(@id_user, @beer_id);", conn); //changed inside values to match their sql table column names and added @ before 2nd value
                     //is DemoDB.dbo. needed in the above query?
                     cmd.Parameters.AddWithValue("@id_user", userId); // changed from @userId to match databae
                     cmd.Parameters.AddWithValue("@beer_id", beerId); // changed from @beerId to match database

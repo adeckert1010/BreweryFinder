@@ -4,7 +4,7 @@
       <v-card-title>{{beer.name}}</v-card-title>
       <p>{{beer.description}}</p>
       <!-- <v-icon>mdi-glass-mug-variant</v-icon> -->
-      <fav-toggle-button></fav-toggle-button>
+      <fav-toggle-button :beerId="beer.id" @toggle-favorite="toggleFavorite"></fav-toggle-button>
       
       <v-img :src="beer.imageLocation" :alt="beer.beer_name" class="beer_image justify-center" max-width="50%"></v-img>
       <p>ABV: {{beer.abv}}</p>
@@ -24,14 +24,17 @@ export default {
     },
     name: "beer",
     props: {
-        beer: Object,
-        favoriteBeers:[]
+        beer: Object
     },
     data() {
         return {
-            singleBeer: {}
+            singleBeer: {},
+            
         }
     },
+    methods:{
+        toggleFavorite(favoriteBeerId){this.$emit('toggle-favorite', favoriteBeerId);}
+    }
     
 }
 </script>

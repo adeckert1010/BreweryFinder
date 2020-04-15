@@ -1,7 +1,7 @@
 <template>
 <v-content class="secondary" light flat>
   <v-container class="fill-height secondary" fluid>
-<beer :beer = singleBeer ></beer>
+<beer :beer = singleBeer @toggle-favorite="toggleFavorite"></beer>
   
   </v-container>
 </v-content>
@@ -16,6 +16,9 @@ export default {
   name: "singleBeer",
   props: {
       singleBeer: {}
+    },
+    methods:{
+        toggleFavorite(favoriteBeerId){this.$emit('toggle-favorite', favoriteBeerId);}
     },
     created() {
     fetch(`${process.env.VUE_APP_REMOTE_API}/beer/${this.$route.params.id}`, {

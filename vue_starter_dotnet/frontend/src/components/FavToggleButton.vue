@@ -1,6 +1,6 @@
 <template>
 
-  <v-btn icon @click="isFav = !isFav">
+  <v-btn icon @click="toggleFavorite">
       <v-icon v-if="isFav" color="info">mdi-glass-mug-variant</v-icon>
       <v-icon v-if="!isFav">mdi-glass-mug-variant</v-icon>        
 </v-btn>
@@ -15,8 +15,19 @@ data(){
    return{ 
        isFav:false
    }
+},
+props: {
+    beerId: Number
+},
+methods: {
+    toggleFavorite(){
+        this.isFav=!this.isFav;
+        this.$emit('toggle-favorite', this.beerId);
+    }
 }
+
 }
+
 </script>
 
 <style>
