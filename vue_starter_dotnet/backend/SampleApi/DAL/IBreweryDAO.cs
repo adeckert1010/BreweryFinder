@@ -20,7 +20,7 @@ namespace SampleApi.DAL
         /// Gets all Breweries
         /// </summary>
         IList<Brewery> GetBreweries();
-        Brewery GetBrewery();
+        Brewery GetBrewery(int id);
         //update
         bool UpdateBrewery(Brewery brewery);
 

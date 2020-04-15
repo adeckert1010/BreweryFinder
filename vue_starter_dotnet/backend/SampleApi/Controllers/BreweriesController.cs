@@ -34,9 +34,9 @@ namespace SampleApi.Controllers
 
         // GET: api/Breweries/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Brewery Get(int id)
         {
-            return "value";
+            return breweryDao.GetBrewery(id);
         }
 
         // POST: api/Breweries

@@ -71,7 +71,7 @@ export default {
     brewery: {}
     
   },
-  created() {
+  mounted() {
     fetch(`${process.env.VUE_APP_REMOTE_API}/beers/${this.brewery.id}`, {
       method: "GET",
       headers: {

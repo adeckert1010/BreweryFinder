@@ -114,9 +114,31 @@ namespace SampleApi.DAL
             return b;
         }
 
-        public Brewery GetBrewery()
+        public Brewery GetBrewery(int id)
         {
-            throw new NotImplementedException();
+            Brewery brewery = new Brewery();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM brewery WHERE location_id = @id", conn);
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        brewery = MapToBrewery(reader);
+                    }
+                }
+
+                return brewery;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
         }
 
         public bool UpdateBrewery(Brewery brewery)
