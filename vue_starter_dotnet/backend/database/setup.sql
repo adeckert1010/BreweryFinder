@@ -299,7 +299,14 @@ INSERT INTO beer_info
 	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
 VALUES ('Fernbank', 'Malty taste and color and is made with Czech yeast, barley, and Saaz hops.', 'https://images.squarespace-cdn.com/content/v1/586009ecd1758e4fc993d43d/1531666659119-846NGWWYWB7DE1O2EI4B/ke17ZwdGBToddI8pDm48kEtbx6y5fjO5ZQ2C-tODv-17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0gbmotiUu1Bj2yro-ZWLi0pm0D9si7POgSdDESS89jA-Tfy9CGOcSB4a7pXHTDfR2A/image-asset.png?format=1000w', 5.3, 36,'Czech Lager');
 
+--b32 l12
+INSERT INTO beer_info
+	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
+VALUES ('Storm', 'Creamy ale made in Kentucky', 'https://untappd.akamaized.net/site/beer_logos/beer-1013580_73037_sm.jpeg', 4.8, 17,'Cream Ale');
 
+
+
+INSERT INTO beer_location (beer_id, location_id) VALUES (32,12);
 INSERT INTO beer_location (beer_id, location_id) VALUES (31,6);
 INSERT INTO beer_location (beer_id, location_id) VALUES (30,6);
 INSERT INTO beer_location (beer_id, location_id) VALUES (29,5);
