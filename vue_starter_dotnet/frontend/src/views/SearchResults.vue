@@ -10,9 +10,9 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-content>
-    <v-row justify="center" class="mx-auto">
-      <beer v-for="beer in beers" v-bind:beer="beer" :beerList="beerList" v-bind:key="beer.id" @toggle-favorite="toggleFavorite"/>
+    <beer-filter v-on:filter="handleFilter"></beer-filter>
+    <v-content> 
+    <v-row justify="center" class="ma-auto"> <beer v-for="beer in filteredBeers" v-bind:beer="beer" :beerList="beerList" v-bind:key="beer.id" @toggle-favorite="toggleFavorite"/>
     </v-row>
     </v-content>
   </v-content>
@@ -20,9 +20,11 @@
 
 <script>
 import Beer from "@/components/Beer.vue";
+import BeerFilter from "@/components/BeerFilter.vue";
 export default {
   components: {
-    Beer
+    Beer,
+    BeerFilter
   },
   created() {
     fetch(
@@ -42,7 +44,8 @@ export default {
   },
   data() {
     return {
-      beers: []
+      beers: [],
+      search: ''
     };
   },
   props:{
@@ -56,6 +59,13 @@ export default {
    toggleFavorite(favoriteBeerId){
     this.$emit('toggle-favorite', favoriteBeerId);
             
+    }
+    
+  },
+  computed: {
+     filteredBeers() {
+        const filter = new RegExp(this.search,'i');
+        return this.beers.filter(beer => beer.name.match(filter));
     }
   }
 };
