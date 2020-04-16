@@ -3,7 +3,7 @@
   <v-content class="secondary">
     <v-row>
       <v-col>
-        <v-carousel continuous cycle dark interval="4000" show-arrows show-arrows-on-hover touch>
+        <v-carousel continuous cycle dark interval="4000" show-arrows show-arrows-on-hover>
       <v-carousel-item v-for="(image, i) in images" :key="i">
         <v-img 
         :src="image"
@@ -57,9 +57,20 @@ export default {
   },
   methods: {
     setImages() {
-      this.breweries.forEach(brewery => {
-        this.images.push(brewery.imageLocation);
-      });
+      // this.breweries.forEach(brewery => {
+      //   this.images.push(brewery.imageLocation);
+      // });
+      
+      for(let i = 0; i < 6; i++){
+        let rand = Math.floor(Math.random() * this.breweries.length);
+        let image = this.breweries[rand].imageLocation;
+        if(this.images.includes(image)){
+          this.images.splice(this.images.indexOf(image),1);
+          i--;
+        }
+        this.images.push(this.breweries[rand].imageLocation);
+      }
+
     }
   },
   created() {

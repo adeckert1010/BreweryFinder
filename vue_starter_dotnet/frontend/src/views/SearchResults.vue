@@ -1,5 +1,5 @@
 <template>
-  <v-content class="secondary">
+  <v-container>
     <v-container v-if="beers.length == 0">
       <v-row>
         <v-col align="center">
@@ -13,7 +13,7 @@
     <v-row dense>
       <beer v-for="beer in beers" v-bind:beer="beer" v-bind:key="beer.id" />
     </v-row>
-  </v-content>
+  </v-container>
 </template>
 
 <script>
