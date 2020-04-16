@@ -11,7 +11,7 @@
       </v-row>
     </v-container>
     <v-row dense>
-      <beer v-for="beer in beers" v-bind:beer="beer" v-bind:key="beer.id" />
+      <beer v-for="beer in beers" v-bind:beer="beer" :beerList="beerList" v-bind:key="beer.id" @toggle-favorite="toggleFavorite"/>
     </v-row>
   </v-container>
 </template>
@@ -42,6 +42,19 @@ export default {
     return {
       beers: []
     };
+  },
+  props:{
+    beerList: []
+  },
+  methods: {
+    handleFilter(search){
+      this.search = search;
+    },
+    //return beers where it matches what is in search bar
+   toggleFavorite(favoriteBeerId){
+    this.$emit('toggle-favorite', favoriteBeerId);
+            
+    }
   }
 };
 </script>

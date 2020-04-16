@@ -14,7 +14,7 @@
         height="250px"
         contain
       ></v-img>
-       <fav-toggle-button :beerId="beer.id" @toggle-favorite="toggleFavorite"></fav-toggle-button>
+       <fav-toggle-button :beerList="beerList" :beerId="beer.id" @toggle-favorite="toggleFavorite"></fav-toggle-button>
       ABV: {{beer.abv}} | IBU: {{beer.ibu}} | {{beer.type}}
       </v-container>
       <v-btn text v-if="isSingleBeer == false" :to="{name: 'singleBeer', params: {id: beer.id}}">View beer info</v-btn>
@@ -32,7 +32,8 @@ export default {
   name: "beer",
   props: {
     beer: Object,
-    isSingleBeer: Boolean
+    isSingleBeer: Boolean,
+    beerList: []
   },
   data() {
     return {

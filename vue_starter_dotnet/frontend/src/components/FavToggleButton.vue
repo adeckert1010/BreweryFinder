@@ -17,13 +17,17 @@ data(){
    }
 },
 props: {
-    beerId: Number
+    beerId: Number,
+    beerList: []
 },
 methods: {
     toggleFavorite(){
         this.isFav=!this.isFav;
         this.$emit('toggle-favorite', this.beerId);
     }
+},
+created(){
+    this.isFav=this.beerList.includes(this.beerId);
 }
 
 }
