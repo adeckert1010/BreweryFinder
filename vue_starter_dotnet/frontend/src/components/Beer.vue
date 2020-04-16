@@ -32,7 +32,11 @@ export default {
         }
     },
     methods:{
-        toggleFavorite(favoriteBeerId){this.$emit('toggle-favorite', favoriteBeerId);}
+        toggleFavorite(favoriteBeerId){
+            this.$emit('toggle-favorite', favoriteBeerId);
+            
+        }
+  
     }
     
 }

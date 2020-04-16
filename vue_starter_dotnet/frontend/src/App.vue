@@ -2,11 +2,13 @@
   <v-app>
     <v-app-bar app color="primary">
       <v-toolbar-title>
-        <router-link id="nav-bar-title" :to="{name: 'home'}"> <v-icon class="pa-2 ma-2" color="info">mdi-glass-mug-variant</v-icon>Brewery Friend Finder</router-link>
+        <router-link id="nav-bar-title" :to="{name: 'home'}">
+          <v-icon class="pa-2 ma-2" color="info">mdi-glass-mug-variant</v-icon>Brewery Friend Finder
+        </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn class="pa-1 ma-1 info" v-if="getUser()">{{getUser().sub}}</v-btn>
-      
+
       <v-btn class="pa-1 ma-1 info removePressed" to="/">
         Home
         <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
@@ -40,10 +42,10 @@
         Register
         <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
       </v-btn>
-      
+
       <!-- </span> -->
     </v-app-bar>
-    <router-view v-on:toggle-favorite-beer="toggleFavoriteBeer"/>
+    <router-view @toggle-favorite="toggleFavoriteBeer" />
   </v-app>
 </template>
 
@@ -55,30 +57,44 @@ export default {
     return {
       // loggedIn: Boolean,
       //user: this.getUser()
-      favoriteBeersList: []
+      favoriteBeersList: [],
+      userId: Number
     };
   },
   methods: {
     getUser() {
       let newUser = auth.getUser();
+      //if(newUser != undefined) {this.userId = newUser.id;}
       console.log(newUser);
       return auth.getUser();
     },
-    toggleFavoriteBeer(beerId){
-      if(this.favoriteBeersList.includes(beerId)){
-        this.favoriteBeersList=this.favoriteBeersList.filter(id=> id!=beerId);
+    toggleFavoriteBeer(beerId) {
+      if (!this.favoriteBeersList.includes(beerId)) {
+        this.favoriteBeersList = this.favoriteBeersList.filter(
+          id => id != beerId
+        );
 
         fetch(`${process.env.VUE_APP_REMOTE_API}/addfavbeer`, {
-      method: "POST",
-      body: JSON.stringify(beerId),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+          method: "POST",
+          headers: new Headers({
+            Authorization: "Bearer " + auth.getToken(),
+            'Content-Type': 'application/json',
+          }),
+          credentials: "same-origin",
+          body: beerId
+        })
+          .then(response => {
+            if (response.ok) {
+              this.favoriteBeersList.push(beerId);
+            } 
+          })
+          
+          .catch(err => console.error(err));
+
       }
-      })
-      }
-      else
-      {this.favoriteBeersList.push(beerId);}
+      //  else {
+        
+      // }
     }
   },
   created() {

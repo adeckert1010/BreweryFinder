@@ -46,12 +46,12 @@ namespace SampleApi.Controllers
 
             //Get User for ID to search the user/beer table
             User user = userDao.GetUser(User.Identity.Name);
-
+            
             if (user != null)
             {
                 // add the favorite beer/user combo to the databse
+                //userDao.AddFavoriteBeer(user.Id, beerId);
                 userDao.AddFavoriteBeer(user.Id, beerId);
-
                 // Switch to 200 OK
                 result = Ok();
             }
