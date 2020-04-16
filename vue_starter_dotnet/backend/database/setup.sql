@@ -127,6 +127,22 @@ INSERT INTO brewery
 		(location_name, bar_brewery_brewpub, image_address, background_info, address_line1, city, district,zipcode)
 VALUES ('Mt. Carmel Brewing Company', 'Brewpub', 'https://www.cincinnatirotary.org/wp-content/uploads/2019/08/Mt-Carmel-Brewing-Company2.png', 'Brewery experience set in a cellar', '4362 Mt Carmel Tobasco Road', 'Cincinnati', 'OH', '45244')
 
+--location 10 
+INSERT INTO brewery
+		(location_name, bar_brewery_brewpub, image_address, background_info, address_line1, city, district,zipcode)
+VALUES ('Streetside Brewery', 'Brewpub', 'https://2blxhf2wgxaolzlxi2xuosnn-wpengine.netdna-ssl.com/wp-content/uploads/2019/10/Streetside-Brewery-Patio.jpg', 'The intersection of community and craft beer', '4003 Eastern Avenue', 'Cincinnati', 'OH', '45226')
+
+--location 11 
+INSERT INTO brewery
+		(location_name, bar_brewery_brewpub, image_address, background_info, address_line1, city, district,zipcode)
+VALUES ('Listermann Brewing Company', 'Brewpub', 'https://welcometonorthside.com/wp-content/uploads/2018/01/144bf9d107ba09e9aae432677faf3d70.jpg', 'Enduring microbrewery with handcrafted bottled ales, a growler station & a homebrew supply store.', '1621 Dana Avenue', 'Cincinnati', 'OH', '45207')
+
+--location 12
+INSERT INTO brewery
+		(location_name, bar_brewery_brewpub, image_address, background_info, address_line1, city, district,zipcode)
+VALUES ('Braxton Brewing Company', 'Brewpub', 'https://assets.simpleviewinc.com/simpleview/image/upload/crm/northkentucky/Braxton-Brewing-6-af02fb4a5056a36_af02fcf2-5056-a36a-0a67451763eca18a.jpg', 'Brewery experience set in a cellar', '27 W 7th Street', 'Covington', 'KY', '41011')
+
+
 
 --b1 l1
 INSERT INTO beer_info
