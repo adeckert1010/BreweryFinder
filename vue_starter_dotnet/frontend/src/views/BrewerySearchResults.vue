@@ -14,7 +14,7 @@ components: {
     Brewery
     },
     created() {
-      fetch(`${process.env.VUE_APP_REMOTE_API}/breweries/searchresults/${this.$route.params.search}`, {
+      fetch(`${process.env.VUE_APP_REMOTE_API}/breweries/brewerysearchresults/${this.$route.params.search}`, {
       method: "GET",
       headers: {
         Accept: "application/json",

@@ -27,13 +27,13 @@ namespace SampleApi.Controllers
         /// <summary>
         /// Get breweries based on a search query
         /// </summary>
-        /// <param name="query"></param>
+        /// <param name="searchString"></param>
         /// <returns></returns>
-        [Route("searchresults/{query}")]
-        [HttpGet]
-        public IEnumerable<Brewery> GetSearchResults(string query)
+        [Route("brewerysearchresults/{searchString}")]
+        [HttpGet("{searchString}")]
+        public IEnumerable<Brewery> GetSearchResults(string searchString)
         {
-            return breweryDao.GetBreweries();
+            return breweryDao.GetBreweries(searchString);
 
         }
 
