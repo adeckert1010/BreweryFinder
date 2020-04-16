@@ -17,8 +17,10 @@
       
 
     <v-navigation-drawer v-model="drawer" absolute temporary color="primary">
-      <v-list dense>
+      <v-list>
         <v-list-item
+            color="info"
+            dark
             v-for="item in items"
             :key="item.title"
             link
@@ -36,6 +38,8 @@
           
           <!-- Login Button -->
           <v-list-item
+            color="info"
+            dark
             v-if="!getUser()"
             link
             to="/login"
@@ -52,6 +56,8 @@
 
           <!-- Register Button -->
           <v-list-item
+            color="info"
+            dark
             v-if="!getUser()"
             link
             to="/register"
@@ -68,6 +74,8 @@
 
           <!-- logout button -->
           <v-list-item
+            color="info"
+            dark
             v-if="getUser()"
             link
             to="/logout"
@@ -233,6 +241,7 @@ body {
 }
 
 .listitem {
-  border-radius: 4px;
+  /* border-radius: 4px; */
+  color: "info";
 }
 </style>
