@@ -1,8 +1,7 @@
 <template>
 <v-content class="secondary" light flat>
-  <v-container class="fill-height secondary" fluid>
-<beer :beer = singleBeer @toggle-favorite="toggleFavorite"></beer>
-  
+  <v-container class="secondary fill-height" fluid>
+    <beer :beer = singleBeer :isSingleBeer="true" @toggle-favorite="toggleFavorite"></beer>
   </v-container>
 </v-content>
 </template>

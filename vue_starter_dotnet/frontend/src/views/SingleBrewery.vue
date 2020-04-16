@@ -1,6 +1,6 @@
 <template>
 <v-content class="secondary" light flat>
-  <v-row dense justify-md="center">
+  <v-row justify="center">
     <brewery :brewery="brewery" :isSingleBrewery="true"></brewery>
   </v-row>
 </v-content>
