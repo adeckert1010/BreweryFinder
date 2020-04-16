@@ -101,7 +101,11 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM brewery", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM brewery
+                                                    WHERE location_name LIKE @searchString 
+                                                    OR address_line1 LIKE @searchString", conn);
+
+                    cmd.Parameters.AddWithValue("@searchString", "%" + searchString + "%");
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
