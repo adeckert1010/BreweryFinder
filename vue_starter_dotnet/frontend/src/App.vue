@@ -23,6 +23,9 @@
       </v-btn>
 
       <v-btn class="pa-1 ma-1 info removePressed" to="/breweries">Breweries</v-btn>
+
+      <v-btn class="pa-1 ma-1 info removePressed" to="/beers">Beers</v-btn>
+
       <!-- <span v-if="$auth.loading"> -->
       <!-- <v-btn @authenticated="user=getUser"  v-if="user" to="/logout" > -->
       <v-btn class="pa-1 ma-1 accent removePressed" v-if="getUser()" to="/logout">
