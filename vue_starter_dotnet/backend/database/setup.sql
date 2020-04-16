@@ -110,7 +110,23 @@ VALUES ('Alexandria Brewing Company', 'Brewpub', 'http://static1.squarespace.com
 --location 6
 INSERT INTO brewery
 	(location_name, bar_brewery_brewpub, image_address, background_info, address_line1, city, district,zipcode)
-VALUES ('13 Below Brewery', 'Brewpub','https://365cincinnati.com/wp-content/uploads/2019/04/13points-Brewery-taproom-seating-scaled.jpg','A micro craft brewery in Sayler Park along the Ohio River.','7391 Forbes Road','Cincinnati','OH','45233');  
+VALUES ('13 Below Brewery', 'Brewpub','https://ohiocraftbeer.org/wp-content/uploads/2019/02/Portfolio_13Below_Header1.jpg','A micro craft brewery in Sayler Park along the Ohio River.','7391 Forbes Road','Cincinnati','OH','45233');  
+
+--location 7
+INSERT INTO brewery
+		(location_name, bar_brewery_brewpub, image_address, background_info, address_line1, city, district,zipcode)
+VALUES ('Brink Brewing Co', 'Brewpub', 'https://images.squarespace-cdn.com/content/v1/56acf67f37013b241d82e707/1491539968950-SXV4SXL8B48DNIBFW747/ke17ZwdGBToddI8pDm48kGPVK--wGoWXJsqwlxbZlQN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5enfxu_O4VeONvneR-F6W8oeFhFqSrYyNrfPB9Y70_gvQ/image-asset.jpeg?format=1000w', 'Bringing delicious craft beer and good times with table games to College Hill', '5905 Hamilton Avenue', 'Cincinnati', 'OH', '45224')
+
+--location 8
+INSERT INTO brewery
+		(location_name, bar_brewery_brewpub, image_address, background_info, address_line1, city, district,zipcode)
+VALUES ('Fretboard Brewing Co', 'Brewpub', 'https://tourdecincinnati.files.wordpress.com/2017/10/photo-oct-23-5-52-43-pm-edited.jpg', 'For the music fan and beer enthusiast alike located in Blue Ash', '5800 Creek Avenue', 'Cincinnati', 'OH', '45242')
+
+--location 9
+INSERT INTO brewery
+		(location_name, bar_brewery_brewpub, image_address, background_info, address_line1, city, district,zipcode)
+VALUES ('Mt. Carmel Brewing Company', 'Brewpub', 'https://www.cincinnatirotary.org/wp-content/uploads/2019/08/Mt-Carmel-Brewing-Company2.png', 'Brewery experience set in a cellar', '4362 Mt Carmel Tobasco Road', 'Cincinnati', 'OH', '45244')
+
 
 --b1 l1
 INSERT INTO beer_info
@@ -255,7 +271,7 @@ VALUES ('Smokey the Pear', 'Do your part to prevent forest fires by indulging in
 --b29 l5
 INSERT INTO beer_info
 	(beer_name, beer_description, beer_image, abv, ibu, beer_type)
-VALUES ('Saturn Ascends', 'A stout made with coffee and semi-sweet dark chocolate.', 'https://untappd.akamaized.net/photos/2019_09_20/58bd7c8ed4d2ddf27a8c8c76bc90abfc_640x640.jpg', 10.3, 44,'Russian Imperial Stout');
+VALUES ('Saturn Ascends', 'A stout made with coffee and semi-sweet dark chocolate.', 'https://untappd.akamaized.net/photos/2019_09_27/09d6d864782632eff7b5ad30388cdb5f_640x640.jpg', 10.3, 44,'Russian Imperial Stout');
 
 --b30 l6
 INSERT INTO beer_info
