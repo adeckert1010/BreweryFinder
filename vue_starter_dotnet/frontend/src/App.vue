@@ -10,13 +10,14 @@
     </v-app-bar>                
       
 
-    <v-navigation-drawer name="viewport" v-model="drawer" absolute temporary color="primary">
+    <v-navigation-drawer v-model="drawer" absolute temporary color="primary">
       <v-list dense>
         <v-list-item
             v-for="item in items"
             :key="item.title"
             link
             :to="item.route"
+            :beerList="favoriteBeersList"
           >
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
