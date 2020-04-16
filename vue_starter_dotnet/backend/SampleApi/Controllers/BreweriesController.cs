@@ -29,8 +29,8 @@ namespace SampleApi.Controllers
         /// </summary>
         /// <param name="searchString"></param>
         /// <returns></returns>
-        [Route("brewerysearchresults/{searchString}")]
-        [HttpGet("{searchString}")]
+        [Route("breweries/brewerysearchresults/{searchString}")]
+        [HttpGet("brewerysearchresults/{searchString}")]
         public IEnumerable<Brewery> GetSearchResults(string searchString)
         {
             return breweryDao.GetBreweries(searchString);
@@ -46,6 +46,7 @@ namespace SampleApi.Controllers
         }
 
         // GET: api/Breweries/5
+        [Route("breweries/{id}")]
         [HttpGet("{id}")]
         public Brewery Get(int id)
         {

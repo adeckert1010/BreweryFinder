@@ -16,7 +16,7 @@
     </v-row>
     <v-row align="center" justify="center">
       <!-- <v-col  md="1"  sm="1"></v-col> -->
-      <v-col md="4" xs="10">
+      <v-col cols="10" md="4" xs="10" >
         <v-card dark class="accent">
           <brewery-search-card></brewery-search-card>
         </v-card>
@@ -29,7 +29,7 @@
         <v-card dark class="accent"></v-card>
       </v-col>-->
 
-      <v-col md="4" xs="10">
+      <v-col cols="10" md="4" xs="10">
         <v-card dark class="accent">
           <search-beers></search-beers>
         </v-card>
