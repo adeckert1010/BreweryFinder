@@ -7,7 +7,7 @@ import Register from './views/Register.vue'
 import Logout from './views/Logout.vue'
 import SingleBeer from './views/SingleBeer.vue'
 import SearchResults from './views/SearchResults.vue'
-import Home from './views/Home.vue'
+// import Home from './views/Home.vue'
 import SingleBrewery from './views/SingleBrewery.vue'
 import AltLanding from './views/AltLanding.vue'
 import BrewerySearchResults from './views/BrewerySearchResults.vue'
@@ -40,7 +40,7 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: AltLandingTwo,
       meta: {
         requiresAuth: false
       }
