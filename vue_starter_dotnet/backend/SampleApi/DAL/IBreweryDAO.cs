@@ -20,6 +20,14 @@ namespace SampleApi.DAL
         /// Gets all Breweries
         /// </summary>
         IList<Brewery> GetBreweries();
+
+        /// <summary>
+        /// Gets breweries containing a search string
+        /// </summary>
+        /// <param name="searchString"></param>
+        /// <returns></returns>
+        IList<Brewery> GetBreweries(string searchString);
+
         Brewery GetBrewery(int id);
         //update
         bool UpdateBrewery(Brewery brewery);

@@ -57,7 +57,43 @@ namespace SampleApi.DAL
             throw new NotImplementedException();
         }
 
+
+        /// <summary>
+        /// Get all breweries
+        /// </summary>
+        /// <returns></returns>
         public IList<Brewery> GetBreweries()
+        {
+            IList<Brewery> breweries = new List<Brewery>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM brewery", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        breweries.Add(MapToBrewery(reader));
+                    }
+                }
+
+                return breweries;
+            }
+            catch (SqlException ex)
+            {
+                return breweries;
+            }
+        }
+
+        /// <summary>
+        /// Get breweries that contain a search string
+        /// </summary>
+        /// <param name="searchString"></param>
+        /// <returns></returns>
+        public IList<Brewery> GetBreweries(string searchString)
         {
             IList<Brewery> breweries = new List<Brewery>();
             try

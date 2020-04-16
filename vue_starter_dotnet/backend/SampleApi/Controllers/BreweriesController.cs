@@ -24,6 +24,19 @@ namespace SampleApi.Controllers
             this.breweryDao = dao;
         }
 
+        /// <summary>
+        /// Get breweries based on a search query
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        [Route("searchresults/{query}")]
+        [HttpGet]
+        public IEnumerable<Brewery> GetSearchResults(string query)
+        {
+            return breweryDao.GetBreweries();
+
+        }
+
         // GET: api/Breweries
         [HttpGet]
         public IEnumerable<Brewery> Get()
