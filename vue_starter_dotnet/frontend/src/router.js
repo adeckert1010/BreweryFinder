@@ -11,7 +11,8 @@ import Home from './views/Home.vue'
 import SingleBrewery from './views/SingleBrewery.vue'
 import AltLanding from './views/AltLanding.vue'
 import BrewerySearchResults from './views/BrewerySearchResults.vue'
-
+import AltLandingTwo from './views/AltLandingTwo'
+import AllBeers from './views/AllBeers'
 
 Vue.use(Router)
 
@@ -111,6 +112,24 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/altlandingtwo",
+      name: "altlandingtwo",
+      component: AltLandingTwo,
+      
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/beers",
+      name: "beers",
+      component: AllBeers,
+      
+      meta: {
+        requiresAuth: false
+      }
+    }
     
   ]
 })

@@ -11,6 +11,17 @@
         Home
         <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
       </v-btn>
+
+      <v-btn class="pa-1 ma-1 info removePressed" to="/AltLanding">
+        AltLanding
+        <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
+      </v-btn>
+
+      <v-btn class="pa-1 ma-1 info removePressed" to="/AltLandingTwo">
+        AltLandingTwo
+        <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
+      </v-btn>
+
       <v-btn class="pa-1 ma-1 info removePressed" to="/breweries">Breweries</v-btn>
       <!-- <span v-if="$auth.loading"> -->
       <!-- <v-btn @authenticated="user=getUser"  v-if="user" to="/logout" > -->

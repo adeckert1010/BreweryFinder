@@ -1,6 +1,12 @@
 <template>
-  <v-content align="center" class="altlanding secondary">
-    <v-row align="center">
+  <v-content class="altlanding secondary">
+    <v-row>
+        <v-col 
+            md=1
+            cols="12"
+            sm="4">
+    
+</v-col>
         <v-col
             md=4
             cols="12"
@@ -10,25 +16,14 @@
     </v-card>
 </v-col>
 
-     <v-col
-            md=4
+<v-col 
+            md=2
             cols="12"
             sm="4">
-    <v-container>
-    <v-card>
-    <v-carousel height="140px" continuous cycle dark interval="4000" show-arrows show-arrows-on-hover touch>
-      <v-carousel-item  v-for="(image, i) in images" :key="i">
-        <v-img 
-        :src="image"
+    <v-card dark class="accent">
         
-        position="center"
-        ></v-img>
-      </v-carousel-item>
-    </v-carousel>
     </v-card>
-    </v-container>
-    </v-col>
-
+</v-col>
 
  <v-col 
             md=4
@@ -37,6 +32,12 @@
     <v-card dark class="accent">
         <search-beers></search-beers>
     </v-card>
+    <v-col 
+            md=1
+            cols="12"
+            sm="4">
+    
+</v-col>
 </v-col>
 
  
@@ -50,7 +51,7 @@ import SearchBeers from "@/components/SearchBeers.vue";
 import BrewerySearchCard from "@/components/BrewerySearchCard.vue";
 
 export default {
-  name: "altlanding",
+  name: "altlandingtwo",
   data() {
     return {
       breweries: [],

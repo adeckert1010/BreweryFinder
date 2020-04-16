@@ -20,7 +20,8 @@ namespace SampleApi.Controllers
             this.beerDAO = beerDao;
         }
 
-        // GET: api/Beers
+        // GET: api/beers
+        [Route("api/beers")]
         [HttpGet]
         public IEnumerable<Beer> Get()
         {
