@@ -47,11 +47,11 @@
       <!-- <router-link>See Beers available</router-link> -->
     </v-card>
   </v-col>
-  <v-row v-else class="pa-5" >
+  <v-row v-else class="pa-10" >
     <v-col xs="8" md="8">
       <v-card dark class="primary" hover>
         <v-img
-          width="100%"
+          height="500px"
           :lazy-src="brewery.imageLocation"
           :src="brewery.imageLocation"
           :alt="brewery.name"

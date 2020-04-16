@@ -9,7 +9,7 @@
             id="searchbeer"
             name="searchbeer"
             label="Search For A Beer"
-            color="white"
+            color="primary"
           ></v-text-field>
           <v-btn class="primary" type="submit">Search</v-btn>
         </v-form>

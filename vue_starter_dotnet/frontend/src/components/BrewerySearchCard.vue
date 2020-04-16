@@ -10,7 +10,7 @@
             id="searchbrewery"
             name="searchbrewery"
             label="Search For A Brewery"
-            color="white"
+            color="primary"
           ></v-text-field>
           <v-btn class="primary" type="submit">Search</v-btn>
         </v-form>

@@ -1,8 +1,22 @@
 <template>
   <!-- <v-content  class="altlanding secondary"> -->
-    <v-row  class="secondary" align="center" justify="space-around">
+  <v-content class="secondary">
+    <v-row>
+      <v-col>
+        <v-carousel continuous cycle dark interval="4000" show-arrows show-arrows-on-hover touch>
+      <v-carousel-item v-for="(image, i) in images" :key="i">
+        <v-img 
+        :src="image"
+        height="500px"
+        position="center"
+        ></v-img>
+      </v-carousel-item>
+    </v-carousel>
+      </v-col>
+    </v-row>
+    <v-row align="center" justify="center">
       <!-- <v-col  md="1"  sm="1"></v-col> -->
-      <v-col  md="4" xs="10">
+      <v-col md="4" xs="10">
         <v-card dark class="accent">
           <brewery-search-card></brewery-search-card>
         </v-card>
@@ -13,17 +27,16 @@
       </v-col>
       <v-col   md="1" sm="1">
         <v-card dark class="accent"></v-card>
-      </v-col> -->
+      </v-col>-->
 
-      <v-col   md="4" xs="10">
+      <v-col md="4" xs="10">
         <v-card dark class="accent">
           <search-beers></search-beers>
         </v-card>
-        
       </v-col>
       <!-- <v-col   md="1" sm="1"></v-col> -->
     </v-row>
-  <!-- </v-content> -->
+  </v-content>
 </template>
 
 <script>
