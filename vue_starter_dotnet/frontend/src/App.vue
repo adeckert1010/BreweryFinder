@@ -7,6 +7,12 @@
           <v-icon class="pa-2 ma-2" color="info">mdi-glass-mug-variant</v-icon>Brewery Friend Finder
         </router-link>
         </v-toolbar-title >
+
+        <v-spacer></v-spacer>
+
+        <v-toolbar-title id="nav-bar-name"
+      v-if="getUser()">{{getUser().sub}}
+      </v-toolbar-title>
     </v-app-bar>                
       
 
@@ -27,9 +33,57 @@
               <v-list-item-title >{{ item.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-      
+          
+          <!-- Login Button -->
+          <v-list-item
+            v-if="!getUser()"
+            link
+            to="/login"
+            :beerList="favoriteBeersList"
+          >
+            <v-list-item-icon>
+              <v-icon>mdi-login</v-icon>
+            </v-list-item-icon>
+  
+            <v-list-item-content>
+              <v-list-item-title >Login</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <!-- Register Button -->
+          <v-list-item
+            v-if="!getUser()"
+            link
+            to="/register"
+            :beerList="favoriteBeersList"
+          >
+            <v-list-item-icon>
+              <v-icon>mdi-account-plus</v-icon>
+            </v-list-item-icon>
+  
+            <v-list-item-content>
+              <v-list-item-title >Register</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <!-- logout button -->
+          <v-list-item
+            v-if="getUser()"
+            link
+            to="/logout"
+            :beerList="favoriteBeersList"
+          >
+            <v-list-item-icon>
+              <v-icon>mdi-logout</v-icon>
+            </v-list-item-icon>
+  
+            <v-list-item-content>
+              <v-list-item-title >Logout</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
       </v-list>
       </v-navigation-drawer>
+      
       
       
     <router-view @toggle-favorite="toggleFavoriteBeer" />
@@ -46,23 +100,39 @@ export default {
       drawer: null,
       items: [
         { title: 'Home', icon: 'mdi-home', route: '/'},
-        { title: 'Login', icon: 'mdi-login', route: '/login'},
-        { title: 'Logout', icon: 'mdi-logout', route: '/logout'},
-        { title: 'Register', icon: 'mdi-account-plus', route: '/register'},
+        // { title: 'Login', icon: 'mdi-login', route: '/login'},
+        // { title: 'Logout', icon: 'mdi-logout', route: '/logout'},
+        // { title: 'Register', icon: 'mdi-account-plus', route: '/register'},
         { title: 'Beers', icon: 'mdi-glass-mug-variant', route: '/beers'},
         { title: 'Breweries', icon: 'mdi-glass-mug', route: '/breweries'}
       ],
       // loggedIn: Boolean,
-      //user: this.getUser()
+      user: this.getUser(),
       favoriteBeersList: [],
-      userId: Number
+      userId: 0
     };
   },
   methods: {
     getUser() {
-      let newUser = auth.getUser();
-      //if(newUser != undefined) {this.userId = newUser.id;}
-      console.log(newUser);
+      // let newUser = auth.getUser();
+      // //if(newUser != undefined) {this.userId = newUser.id;}
+      // this.favoriteBeersList=fetch(`${process.env.VUE_APP_REMOTE_API}/favoritebeers/1`, {
+      //     method: "GET",
+      //     headers: new Headers({
+      //       Authorization: "Bearer " + auth.getToken(),
+      //       'Content-Type': 'application/json',
+      //     }),
+      //     credentials: "same-origin",
+      //     body: beerId
+      //   })
+      //     .then(response => {
+      //       if (response.ok) {
+      //         this.favoriteBeersList.push(beerId);
+      //       } 
+      //     })
+          
+      //     .catch(err => console.error(err));
+
       return auth.getUser();
     },
     toggleFavoriteBeer(beerId) {
@@ -154,6 +224,12 @@ body {
 #nav-bar-title {
   text-decoration: none;
   color: #e9c46a;
+}
+
+#nav-bar-name {
+  text-decoration: none;
+  color: #e9c46a;
+  text-transform: capitalize;
 }
 
 .listitem {

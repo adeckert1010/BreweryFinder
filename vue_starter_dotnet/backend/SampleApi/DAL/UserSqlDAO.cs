@@ -100,7 +100,7 @@ namespace SampleApi.DAL
             }
             catch (SqlException ex)
             {
-                throw ex;
+                
             }
         }
 
