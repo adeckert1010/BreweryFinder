@@ -1,7 +1,7 @@
 <template>
 <v-content class="secondary" light flat>
   <v-container class="secondary fill-height" fluid>
-    <beer :beer = singleBeer :isSingleBeer="true" @toggle-favorite="toggleFavorite"></beer>
+    <beer :beer = singleBeer :beerList="beerList" :isSingleBeer="true" @toggle-favorite="toggleFavorite"></beer>
   </v-container>
 </v-content>
 </template>
@@ -14,7 +14,8 @@ export default {
   },
   name: "singleBeer",
   props: {
-      singleBeer: {}
+      singleBeer: {},
+      beerList: []
     },
     methods:{
         toggleFavorite(favoriteBeerId){this.$emit('toggle-favorite', favoriteBeerId);}

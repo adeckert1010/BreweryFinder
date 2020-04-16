@@ -1,11 +1,12 @@
 <template>
-  <v-content class="beers secondary" >
+  <v-content :beerList="beerList" class="beers secondary" >
     <beer-filter v-on:filter="handleFilter" ></beer-filter>
     <v-container fluid>
     <v-row dense justify="center">
     <beer 
       class="beer ma-5"
       :key="beer.id"
+      :beerList="beerList"
       v-for="beer in filteredBeers"
       v-bind:beer="beer"
       v-bind:search="search"
@@ -24,6 +25,9 @@ export default {
   components: {
     Beer,
     BeerFilter
+  },
+  props: {
+    beerList: []
   },
   name: "beers",
   data() {

@@ -193,7 +193,7 @@ namespace SampleApi.DAL
                     }
 
                     //now get the favorite beers
-                    user.FavoriteBeers = (IList<Beer>)GetFavoriteBeers(user.Id);
+                    if (user != null) { user.FavoriteBeers = (IList<Beer>)GetFavoriteBeers(user.Id); }
                 }
 
                 return user;
