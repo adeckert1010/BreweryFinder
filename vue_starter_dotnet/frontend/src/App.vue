@@ -1,52 +1,39 @@
 <template>
   <v-app>
     <v-app-bar app color="primary">
+      <v-icon @click.stop="drawer=!drawer" color="info">mdi-menu</v-icon>
       <v-toolbar-title>
         <router-link id="nav-bar-title" :to="{name: 'home'}">
           <v-icon class="pa-2 ma-2" color="info">mdi-glass-mug-variant</v-icon>Brewery Friend Finder
         </router-link>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn class="pa-1 ma-1 info" v-if="getUser()">{{getUser().sub}}</v-btn>
+        </v-toolbar-title >
+    </v-app-bar>                
+      
 
-      <v-btn class="pa-1 ma-1 info removePressed" to="/">
-        Home
-        <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
-      </v-btn>
-
-      <v-btn class="pa-1 ma-1 info removePressed" to="/AltLanding">
-        AltLanding
-        <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
-      </v-btn>
-
-      <v-btn class="pa-1 ma-1 info removePressed" to="/AltLandingTwo">
-        AltLandingTwo
-        <!-- <router-link :to="{name: 'home'}">Home</router-link> -->
-      </v-btn>
-
-      <v-btn class="pa-1 ma-1 info removePressed" to="/breweries">Breweries</v-btn>
-
-      <v-btn class="pa-1 ma-1 info removePressed" to="/beers">Beers</v-btn>
-
-      <!-- <span v-if="$auth.loading"> -->
-      <!-- <v-btn @authenticated="user=getUser"  v-if="user" to="/logout" > -->
-      <v-btn class="pa-1 ma-1 accent removePressed" v-if="getUser()" to="/logout">
-        Logout
-        <!-- <router-link :to="{name: 'logout'}">Logout</router-link> -->
-      </v-btn>
-      <v-btn class="pa-1 ma-1 info removePressed" v-if="!getUser()" to="/login">
-        Login
-        <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
-      </v-btn>
-      <v-btn class="pa-1 ma-1 info removePressed" v-if="!getUser()" to="/register">
-        Register
-        <!-- <router-link :to="{name: 'login'}">Login</router-link> -->
-      </v-btn>
-
-      <!-- </span> -->
-    </v-app-bar>
+    <v-navigation-drawer name="viewport" v-model="drawer" absolute temporary color="primary">
+      <v-list dense>
+        <v-list-item
+            v-for="item in items"
+            :key="item.title"
+            link
+            :to="item.route"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+  
+            <v-list-item-content>
+              <v-list-item-title >{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+      
+      </v-list>
+      </v-navigation-drawer>
+      
+      
     <router-view @toggle-favorite="toggleFavoriteBeer" />
   </v-app>
+
 </template>
 
 <script>
@@ -55,6 +42,15 @@ import auth from "./auth";
 export default {
   data() {
     return {
+      drawer: null,
+      items: [
+        { title: 'Home', icon: 'mdi-home', route: '/'},
+        { title: 'Login', icon: 'mdi-login', route: '/login'},
+        { title: 'Logout', icon: 'mdi-logout', route: '/logout'},
+        { title: 'Register', icon: 'mdi-account-plus', route: '/register'},
+        { title: 'Beers', icon: 'mdi-glass-mug-variant', route: '/beers'},
+        { title: 'Breweries', icon: 'mdi-glass-mug', route: '/breweries'}
+      ],
       // loggedIn: Boolean,
       //user: this.getUser()
       favoriteBeersList: [],
@@ -157,5 +153,9 @@ body {
 #nav-bar-title {
   text-decoration: none;
   color: #e9c46a;
+}
+
+.listitem {
+  border-radius: 4px;
 }
 </style>
