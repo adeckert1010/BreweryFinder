@@ -38,26 +38,17 @@
             >View More Details</v-btn>
           </v-card-actions>
           <v-expand-transition>
-            <div>
-              <v-card
-                class="accent mx-auto ma-5"
-                v-for="beer in beers"
-                v-bind:key="beer.id"
-                hover
-                v-show="isHiddenBeer"
-              >
-                <beer v-bind:beer="beer"></beer>
-                <router-link :to="{name: 'singleBeer', params: {id: beer.id}}">View beer info</router-link>
-              </v-card>
-            </div>
+            <v-row>
+              <beer v-show="isHiddenBeer" v-for="beer in beers" :key="beer.id" v-bind:beer="beer"></beer>
+            </v-row>
           </v-expand-transition>
         </v-card-text>
       </v-expand-transition>
       <!-- <router-link>See Beers available</router-link> -->
     </v-card>
   </v-col>
-  <v-container fluid v-else>
-    <v-col>
+  <v-row v-else class="pa-5" >
+    <v-col xs="8" md="8">
       <v-card dark class="primary" hover>
         <v-img
           width="100%"
@@ -95,39 +86,30 @@
               >View More Details</v-btn>
             </v-card-actions>
             <v-expand-transition>
-              <div>
-                <v-card
-                  class="accent mx-auto ma-5"
-                  v-for="beer in beers"
-                  v-bind:key="beer.id"
-                  hover
-                  v-show="isHiddenBeer"
-                >
-                  <beer v-bind:beer="beer"></beer>
-                  <router-link :to="{name: 'singleBeer', params: {id: beer.id}}">View beer info</router-link>
-                </v-card>
-              </div>
+              <v-row>
+              <beer v-show="isHiddenBeer" v-for="beer in beers" :key="beer.id" v-bind:beer="beer"></beer>
+            </v-row>
             </v-expand-transition>
           </v-card-text>
         </v-expand-transition>
         <!-- <router-link>See Beers available</router-link> -->
       </v-card>
     </v-col>
-    <v-col>
-      <v-card hover>
-          <iframe
-            width="100%"
-            height="100%"
-            id="gmap_canvas"
-            :src="setMapSource"
-            frameborder="0"
-            scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-          ></iframe>
+    <v-col cols="4">
+      <v-card hover id="map">
+        <iframe
+          width="100%"
+          height="100%"
+          id="gmap_canvas"
+          :src="setMapSource"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        ></iframe>
       </v-card>
     </v-col>
-  </v-container>
+  </v-row>
 </template>
 
 <script>
@@ -179,5 +161,13 @@ export default {
 <style scoped>
 .rounded {
   border-radius: 8px;
+}
+
+@media only screen and (min-width: 960px) {
+  #map {
+    position: fixed;
+    width: 31%;
+    height: 50%;
+  }
 }
 </style>
