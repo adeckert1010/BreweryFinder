@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-content class="secondary">
     <v-container v-if="beers.length == 0">
       <v-row>
         <v-col align="center">
@@ -10,10 +10,12 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-row dense>
+    <v-content>
+    <v-row justify="center" class="mx-auto">
       <beer v-for="beer in beers" v-bind:beer="beer" :beerList="beerList" v-bind:key="beer.id" @toggle-favorite="toggleFavorite"/>
     </v-row>
-  </v-container>
+    </v-content>
+  </v-content>
 </template>
 
 <script>
