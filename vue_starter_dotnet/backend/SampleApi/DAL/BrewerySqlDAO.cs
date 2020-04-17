@@ -103,7 +103,8 @@ namespace SampleApi.DAL
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(@"SELECT * FROM brewery
                                                     WHERE location_name LIKE @searchString 
-                                                    OR address_line1 LIKE @searchString", conn);
+                                                    OR address_line1 LIKE @searchString
+                                                    OR city LIKE @searchString", conn);
 
                     cmd.Parameters.AddWithValue("@searchString", "%" + searchString + "%");
 
