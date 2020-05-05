@@ -15,7 +15,6 @@
       </v-toolbar-title>
     </v-app-bar>                
       
-
     <v-navigation-drawer v-model="drawer" absolute temporary fixed color="primary">
       <v-list>
         <v-list-item
