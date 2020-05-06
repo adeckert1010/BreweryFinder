@@ -13,6 +13,7 @@ import AltLanding from './views/AltLanding.vue'
 import BrewerySearchResults from './views/BrewerySearchResults.vue'
 import AltLandingTwo from './views/AltLandingTwo'
 import AllBeers from './views/AllBeers'
+import AboutUs from './views/AboutUs.vue'
 
 Vue.use(Router)
 
@@ -127,6 +128,14 @@ const router = new Router({
       component: AllBeers,
       
       meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: AboutUs,
+      meta:{
         requiresAuth: false
       }
     }

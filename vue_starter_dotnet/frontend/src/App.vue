@@ -92,8 +92,8 @@
       </v-navigation-drawer>
       
       
-      
     <router-view @toggle-favorite="toggleFavoriteBeer" />
+    <v-footer dark color="primary" style="color: #e9c46a">&copy; {{year}} Allen Deckert, Joe Zugelter, Kris Lane, Travis Hyde<v-spacer></v-spacer><a style="color:#264653">Meet the Authors</a></v-footer>
   </v-app>
 
 </template>
@@ -111,12 +111,14 @@ export default {
         // { title: 'Logout', icon: 'mdi-logout', route: '/logout'},
         // { title: 'Register', icon: 'mdi-account-plus', route: '/register'},
         { title: 'Beers', icon: 'mdi-glass-mug-variant', route: '/beers'},
-        { title: 'Breweries', icon: 'mdi-glass-mug', route: '/breweries'}
+        { title: 'Breweries', icon: 'mdi-glass-mug', route: '/breweries'},
+        { title: 'About Us', icon: 'mdi-iframe-braces', route: '/about'}
       ],
       // loggedIn: Boolean,
       user: this.getUser(),
       favoriteBeersList: [],
-      userId: 0
+      userId: 0,
+      year: Date
     };
   },
   methods: {
@@ -174,7 +176,9 @@ export default {
   created() {
     this.user = auth.getUser();
     this.loggedIn = this.user;
-  }
+    
+    this.year = new Date().getFullYear();
+  }  
 };
 </script>
 
