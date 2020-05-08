@@ -93,7 +93,7 @@
       
       
     <router-view @toggle-favorite="toggleFavoriteBeer" />
-    <v-footer dark color="primary" style="color: #e9c46a">&copy; {{year}} Allen Deckert, Joe Zugelter, Kris Lane, Travis Hyde<v-spacer></v-spacer><a style="color:#264653">Meet the Authors</a></v-footer>
+    <v-footer dark color="primary" style="color: #e9c46a">&copy; {{year}} Allen Deckert, Joe Zugelter, Kris Lane, Travis Hyde<v-spacer></v-spacer><router-link style="color:#264653" to="about">Meet the Authors</router-link></v-footer>
   </v-app>
 
 </template>
