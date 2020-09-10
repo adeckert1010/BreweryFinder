@@ -14,7 +14,31 @@
     <noscript>
       <strong>We're sorry but fizz buzz brewery doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAxZ2oo4JLqSK00posala-nw1U7RJeyKa8",
+    authDomain: "fizzbuzzbrewery.firebaseapp.com",
+    databaseURL: "https://fizzbuzzbrewery.firebaseio.com",
+    projectId: "fizzbuzzbrewery",
+    storageBucket: "fizzbuzzbrewery.appspot.com",
+    messagingSenderId: "5745693786",
+    appId: "1:5745693786:web:b685556b1a528926b2f463",
+    measurementId: "G-FCSSN97GET"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
   </body>
 </html>
