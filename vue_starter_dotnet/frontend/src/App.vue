@@ -4,7 +4,7 @@
       <v-icon @click.stop="drawer=!drawer" color="info">mdi-menu</v-icon>
       <v-toolbar-title>
         <router-link id="nav-bar-title" :to="{name: 'home'}">
-          <v-icon class="pa-2 ma-2" color="info">mdi-glass-mug-variant</v-icon>Brewery Friend Finder
+          <v-icon class="pa-2 ma-2" color="info">mdi-glass-mug-variant</v-icon>Fizz Buzz Brewery
         </router-link>
         </v-toolbar-title >
 

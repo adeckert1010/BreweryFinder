@@ -1,6 +1,7 @@
 <template>
   <!-- <v-content  class="altlanding secondary"> -->
   <v-content class="secondary">
+    
     <v-row>
       <v-col>
         <v-carousel continuous cycle dark interval="4000" show-arrows show-arrows-on-hover>
@@ -12,6 +13,11 @@
         ></v-img>
       </v-carousel-item>
     </v-carousel>
+      </v-col>
+    </v-row>
+    <v-row align="center" justify="center">
+      <v-col cols="10">
+            <p class="white--text">Welcome to FizzBuzz Brewery, the best way to find a local brewery in Cincinnati. If you know what beer or brewery you are looking for, search below. If you want to browse beers or breweries, pick from the menu.</p>
       </v-col>
     </v-row>
     <v-row align="center" justify="center">
